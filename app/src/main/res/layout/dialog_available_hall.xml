@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="6dp">
+
+    <TextView
+        android:id="@+id/main_text_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        android:text="This day is already booked.\n\nDo you want to check other halls in the same day?"
+        android:textColor="@color/colorPrimaryVeryDark"
+        android:textSize="20sp"/>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/yes_available_BTN"
+            android:layout_width="140dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryVeryDark"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:text="Yes"/>
+
+        <Button
+            android:id="@+id/no_available_BTN"
+            android:layout_width="140dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryVeryDark"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="No"/>
+    </RelativeLayout>
+</LinearLayout>

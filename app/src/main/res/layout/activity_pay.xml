@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#ddd"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    tools:context=".activities.owener.PayActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Amount*"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="amount"
+        android:gravity="center"
+        android:backgroundTint="@color/colorLightYellow"
+        android:inputType="numberDecimal"
+        android:background="@android:drawable/editbox_background" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name on Card*"
+        android:layout_marginTop="6dp"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/name_on_card"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:hint="name"
+        android:backgroundTint="@color/colorLightYellow"
+        android:background="@android:drawable/editbox_background"
+        android:inputType="text" />
+
+    <TextView
+        android:layout_marginTop="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Credit Card Type *"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <Spinner
+        android:id="@+id/card_type"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:drawable/editbox_background"
+        android:entries="@array/card_type" />
+
+    <TextView
+        android:layout_marginTop="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Credit Card Number *"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/card_no"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="credit card number"
+        android:backgroundTint="@color/colorLightYellow"
+        android:gravity="center"
+        android:background="@android:drawable/editbox_background"
+        android:inputType="number" />
+
+
+    <TextView
+        android:layout_marginTop="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Card Expiration *"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <EditText
+            android:id="@+id/month"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:backgroundTint="@color/colorLightYellow"
+            android:background="@android:drawable/editbox_background"
+            android:hint="month"
+            android:inputType="number" />
+
+
+        <EditText
+            android:id="@+id/year"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:backgroundTint="@color/colorLightYellow"
+            android:background="@android:drawable/editbox_background"
+            android:hint="year"
+            android:inputType="number" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_marginTop="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CVV*"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/cvv"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:backgroundTint="@color/colorLightYellow"
+        android:background="@android:drawable/editbox_background"
+        android:hint="cvv"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Address*"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="address"
+        android:backgroundTint="@color/colorLightYellow"
+        android:gravity="center"
+        android:background="@android:drawable/editbox_background" />
+
+
+    <Button
+        android:id="@+id/pay"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Pay"
+        android:textColor="#fff"
+        android:textSize="14sp" />
+
+</LinearLayout>

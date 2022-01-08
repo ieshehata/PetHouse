@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="card_type">
+        <item>"Visa"</item>
+        <item>"Master Card"</item>
+    </array>
+</resources>

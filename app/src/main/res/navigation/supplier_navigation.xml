@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_req">
+
+    <fragment
+        android:id="@+id/navigation_req"
+        android:name="com.app.pethouse.activities.supplier.fragment.RequestsFragment"
+        android:label="requests"
+        tools:layout="@layout/fragment_list" />
+
+
+    <fragment
+        android:id="@+id/navigation_calender"
+        android:name="com.app.pethouse.activities.general.fragment.SupplierCalenderFragment"
+        android:label="@string/calender"
+        tools:layout="@layout/fragment_supplier_calender" />
+
+    <fragment
+        android:id="@+id/navigation_supplier_chat"
+        android:name="com.app.pethouse.activities.supplier.fragment.SupplierChatFragment"
+        android:label="@string/calender"
+        tools:layout="@layout/fragment_list" />
+
+
+</navigation>

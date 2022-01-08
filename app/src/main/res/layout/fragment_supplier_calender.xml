@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.general.fragment.SupplierCalenderFragment"
+    android:theme="@style/Theme.MaterialComponents.Light">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                style="@style/linearParent"
+                android:padding="@dimen/loginViewsMargin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calendar"
+                    android:textColor="@color/colorPrimaryVeryDark"
+                    android:gravity="center"
+                    android:textSize="24sp"/>
+
+                <CalendarView
+                    android:id="@+id/calendar"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:background="@color/colorTransparent"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <Button
+                                android:tint="@color/greenGray"
+                                app:backgroundTint="@color/greenGray"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:gravity="center"
+                                android:layout_marginLeft="0dp" />
+                            <TextView
+                                android:text="My Booking"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryVeryDark"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:layout_marginLeft="0dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+                            <Button
+                                app:backgroundTint="@color/darkBlue"
+                                android:tint="@color/darkBlue"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:gravity="center"
+                                android:layout_marginLeft="0dp" />
+                            <TextView
+                                android:text="Unavailable"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryVeryDark"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:layout_marginLeft="0dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/caldroid_transparent"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="end">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <Button
+                                android:tint="@color/red"
+                                app:backgroundTint="@color/red"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:gravity="center"
+                                android:layout_marginRight="0dp" />
+                            <TextView
+                                android:text="Booked"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryVeryDark"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:layout_marginRight="0dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+                            <Button
+                                android:tint="@color/yellow"
+                                app:backgroundTint="@color/yellow"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:gravity="center"
+                                android:layout_marginRight="0dp" />
+                            <TextView
+                                android:text="Waiting"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryVeryDark"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:layout_marginRight="0dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/book"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Book"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimaryVeryDark"
+                    android:textSize="20sp"
+                    android:padding="6dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+
+    <fragment
+        android:id="@+id/navigation_reg"
+        android:name="com.app.pethouse.activities.owener.fragment.OwenerProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_owener_profile" />
+
+    <fragment
+        android:id="@id/navigation_home"
+        android:name="com.app.pethouse.activities.owener.fragment.OwenerHomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home_profile" />
+
+    <fragment
+        android:id="@+id/navigation_req"
+        android:name="com.app.pethouse.activities.supplier.fragment.RequestsFragment"
+        android:label="requests"
+        tools:layout="@layout/fragment_list" />
+
+    <fragment
+        android:id="@+id/navigation_owener_chat"
+        android:name="com.app.pethouse.activities.owener.fragment.OwenerChatFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_list" />
+
+
+
+</navigation>

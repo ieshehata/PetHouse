@@ -1,0 +1,541 @@
+<resources>
+    <string name="app_name">Pet House</string>
+    <string name="don_t_have_an_account_sign_up" />
+    <string name="title_activity_admin_main">AdminMainActivity</string>
+    <string name="tab_text_1">Stations</string>
+    <string name="tab_text_2">Reports</string>
+    <string name="title_activity_station_main">StationMainActivity</string>
+    <string name="tab_text_3">Orders</string>
+    <string name="tab_text_4">Data</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="access_token" translatable="false">pk.eyJ1IjoibWFobW91ZDdlbGxhd2F0dHkiLCJhIjoiY2pzeW1jOTJ3MGRycTQzcXRjNHEycnExNyJ9.enxRekCKYRpiy_bpVTEl8Q</string>
+    <string name="sms" />
+    <string name="notifications" />
+    <string name="msg_token_fmt" translatable="false">FCM registration Token: %s</string>
+
+    <string name="type_activity">Choose Type</string>
+    <string name="admin_dashboard_activity">Admin Dashboard</string>
+    <string name="new_product_activity">New Product</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="add">Add</string>
+    <string name="update">Update</string>
+    <string name="name">Full Name</string>
+    <string name="code">Code</string>
+    <string name="doctor">Doctor</string>
+    <string name="subject">Subject</string>
+    <string name="day">Day</string>
+    <string name="from_hour">From Hour</string>
+    <string name="to_hour">To Hour</string>
+    <string name="hour">Hour</string>
+    <string name="hall">Hall</string>
+    <string name="clear">Clear Filters</string>
+    <string name="search">Search</string>
+    <string name="helper_text">Search by: Product name, Category, Sub-Category, Brand, Model and Year</string>
+    <string name="no_data">No data with this filter!</string>
+    <string name="on_map">Show On Map</string>
+
+
+    <string name="add_student">Student Data</string>
+    <string name="add_subject">Subject Data</string>
+    <string name="add_timetable">Timetable Data</string>
+
+    <string name="login_background">Login Description</string>
+    <string name="add_hall">Hall Data</string>
+    <string name="user_location_permission_not_granted">No Permission</string>
+    <string name="user_location_permission_explanation">Permission</string>
+    <string name="current_location">Current Location</string>
+    <string name="add_doctor">Doctor Data</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="product_name">Product Name</string>
+
+    <string name="forgot_password">forget_password</string>
+    <string name="register_back_login">Have an account? Login</string>
+    <string name="login_signup_hint">Create New Account</string>
+    <string name="register">Register</string>
+    <string name="account_info">Account Info</string>
+    <string name="logout">Logout</string>
+    <string name="system_data">System Data</string>
+    <string name="companies">Companies Control</string>
+    <string name="company_data">Company Data</string>
+
+    <string name="system_data_description">Here you can control system data. You can add, delete and edit Categories and SubCategories. Also you could add, delete and edit Brands, Models and Model Years.</string>
+    <string name="companies_request">Companies</string>
+    <string name="orders">Orders</string>
+    <string name="orders_description">You can observe every order customers make. And get all order information such as price, date, and status.</string>
+    <string name="companies_description">You get requests when companies register. You have full control to Accept or Reject companies request. Not just that you can also deactivate any company you want at any time.</string>
+    <string name="title_activity_system_data">System Data</string>
+
+    <string name="tab_suppliers">Suppliers</string>
+    <string name="tab_requests">Requests</string>
+
+    <string name="tab_gov">Governorates</string>
+    <string name="tab_cities">Cities</string>
+
+    <string name="tab_posts">Posts</string>
+    <string name="tab_achievements">Achievements</string>
+    <string name="tab_likes">Likes</string>
+
+    <string name="tab_advisers">Advisers</string>
+
+    <string name="tab_available">Available Groups</string>
+    <string name="tab_my_groups">My Groups</string>
+
+    <string name="no_sub_category_found">No Sub Category Found</string>
+    <string name="no_models_found">No Models Found</string>
+    <string name="no_years_found">No Model Years Found</string>
+    <string name="name_label">Name:</string>
+    <string name="reject">Reject</string>
+    <string name="pay">Pay</string>
+    <string name="accept">Accept</string>
+    <string name="todo">TODO</string>
+
+    <string name="customer_label">Customer Name:</string>
+    <string name="product_label">Product Name:</string>
+    <string name="quantity_label">Quantity = </string>
+    <string name="price_label">Total Price =</string>
+    <string name="waiting">Waiting For Company Response</string>
+    <string name="paid">Paid Successfully</string>
+    <string name="rejected">Rejected By Company</string>
+    <string name="accepted">Accepted, Waiting For Payment</string>
+
+    <string name="category_label">Category</string>
+    <string name="subcategory_label">Sub Category</string>
+    <string name="brand_label">Brand</string>
+    <string name="model_label">Model</string>
+    <string name="year_label">Year</string>
+    <string name="price">Price</string>
+    <string name="quantity">Quantity</string>
+
+    <string name="order">Order Now</string>
+    <string name="product_image">Product Image</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="rate">Rate</string>
+    <string name="customer_feedback">Customer Feedback</string>
+    <string name="received_this_order">Received This Order</string>
+    <string name="write_your_comment">write your comment...</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="student">Student</string>
+    <string name="teacher">Teacher</string>
+    <string name="headline">Headline</string>
+    <string name="bio">Bio</string>
+    <string name="classes">Classes</string>
+    <string name="teachers">Teachers</string>
+    <string name="students">Students</string>
+    <string name="courses">Courses</string>
+    <string name="title_activity_teacher_dashboard">Teacher Dashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_chat">Chat</string>
+    <string name="my_courses">My Courses</string>
+    <string name="course_name">Course Name</string>
+    <string name="course_description">Course Description</string>
+    <string name="chapters">Chapters</string>
+    <string name="add_chapter">Add Chapter</string>
+    <string name="no_chapter_found">No Chapter Found</string>
+    <string name="kwd">KWD</string>
+    <string name="chapter_name">Chapter Name</string>
+    <string name="chapter_items">Chapter Items</string>
+    <string name="add_lesson">Add Lesson</string>
+    <string name="add_quiz">Add Quiz</string>
+    <string name="no_items_found">No Items Found</string>
+    <string name="lesson_name">Lesson Name</string>
+    <string name="estimated_time">Estimated Time</string>
+    <string name="add_video_url">Add Video Url</string>
+    <string name="add_pdf_file">Add Pdf File</string>
+    <string name="add_file">Add File</string>
+    <string name="file_name">File Name:</string>
+    <string name="youtube_video_url">Youtube Video Url</string>
+    <string name="lesson_notes">Lesson Notes</string>
+    <string name="by">By:</string>
+    <string name="description">Description</string>
+    <string name="pay_this_course">Pay This Course</string>
+    <string name="download_file">Download File</string>
+    <string name="quiz_name">Quiz Name</string>
+    <string name="quiz_description">Quiz Description</string>
+    <string name="questions">Questions</string>
+    <string name="add_question">Add Question</string>
+    <string name="start_quiz">Start Quiz</string>
+    <string name="no_questions_found">No Questions Found</string>
+    <string name="trial_quiz">Trial Quiz, this quiz will start as trial and no answer will be provide because you\'re not student.</string>
+    <string name="question_text">Question Text</string>
+    <string name="question_type">Question Type</string>
+    <string name="question_point">Question Point</string>
+    <string name="choices">Choices</string>
+    <string name="correct_answer">Correct Answer</string>
+    <string name="allow_student">Allow student to upload a file with their answer</string>
+    <string name="write_a_choice">write a choice</string>
+    <string name="quiz_answers">Quiz Answers</string>
+    <string name="answer">Answer</string>
+    <string name="next">Next</string>
+    <string name="title_activity_student_dashboard">MainActivity</string>
+    <string name="admin">Admin</string>
+    <string name="adviser">Adviser</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="nationality">Nationality</string>
+    <string name="smoking">Smoking</string>
+    <string name="alcohol">Alcohol</string>
+    <string name="gender">Gender</string>
+    <string name="addiction_type">Addiction Type</string>
+    <string name="drugs">Drugs</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="quit_date">Quit Date</string>
+    <string name="did_you_quit">Have you quited?</string>
+    <string name="qualifications_images">Qualifications Images</string>
+    <string name="add_qualification">Add Qualification</string>
+    <string name="apply_adviser">Apply to be an adviser</string>
+    <string name="system_control">System Control</string>
+    <string name="review">Review</string>
+    <string name="feedback">Feedback</string>
+    <string name="settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="likes">Likes</string>
+    <string name="comments">Comments</string>
+    <string name="comment">Comment</string>
+    <string name="write_a_comment">write a comment</string>
+    <string name="like">Like</string>
+    <string name="liked">Liked</string>
+    <string name="groups">Groups</string>
+    <string name="post">Post</string>
+    <string name="achievement">Achievement</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="what_s_on_your_mind">What is on your mind?</string>
+    <string name="what_have_you_achieved">What have you achieved?</string>
+    <string name="no_posts_found">No Posts Found!</string>
+    <string name="title_activity_test">ScrollingActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="points">Points</string>
+    <string name="following">Following</string>
+    <string name="follow">Follow</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="see_all_information">See All Information</string>
+    <string name="followers">Followers</string>
+    <string name="view_profile">View Profile</string>
+    <string name="type_your_message">type your message...</string>
+    <string name="no_messages_yet">no messages yet</string>
+    <string name="available">Available</string>
+    <string name="active">Active</string>
+    <string name="males_amp_females"><![CDATA[Males & Females]]></string>
+    <string name="all_types">All Types</string>
+    <string name="join">Join</string>
+    <string name="set_attenders">Set Attenders</string>
+    <string name="group_image">Group Image</string>
+    <string name="group_name">Group Name</string>
+    <string name="gender_condition">Gender Condition</string>
+    <string name="addiction_type_condition">Addiction Type Condition</string>
+    <string name="meetings">Meetings:</string>
+    <string name="add_meeting">Add Meeting</string>
+    <string name="poll_title">Poll Title</string>
+    <string name="set">Set</string>
+    <string name="cancel">Cancel</string>
+    <string name="end">End</string>
+    <string name="send">Send</string>
+    <string name="meeting">Meetings</string>
+    <string name="cover_image">Cover Image</string>
+    <string name="chats">Chats</string>
+    <string name="contact_admin">Contact Admin</string>
+    <string name="reports">Reports</string>
+    <string name="no_meetings_found">No Meetings Found!</string>
+    <string name="enter_time">Enter Time</string>
+    <string name="enter_day_date">Enter Day Date</string>
+    <string name="finish_meeting">Finish Meeting</string>
+    <string name="patients">Patients:</string>
+    <string name="title">Title</string>
+    <string name="text">Text</string>
+    <string name="tips">Tips</string>
+    <string name="no_tips_found">No Tips Found!</string>
+    <string name="nutration_informaton">Nutration informaton</string>
+    <string name="personIcon" translatable="false">personIcon</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="full_name">Full name</string>
+    <string name="reset">Reset</string>
+    <string name="enter_the_new_password">Enter the new Password</string>
+    <string name="english" translatable="false">English</string>
+    <string name="عربية" translatable="false">العربية</string>
+    <string name="_2020_meqyas2" translatable="false">© 2020 MEQYAS</string>
+    <string name="mainPage">mainPage</string>
+    <string name="_forget_password">Forget Password</string>
+    <string name="enter_your_phone_number">Enter your Phone number</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="_00966_5" translatable="false">+965</string>
+    <string name="send_code">Send code</string>
+    <string name="passIcon" translatable="false">passIcon</string>
+    <string name="enter_the_code">We sent you a code to your phone, Enter it.</string>
+    <string name="nutrition_label_information">Nutrition Label Information</string>
+    <string name="addFood">Add Food</string>
+    <string name="typeE">Type</string>
+    <string name="recalculate">Recalculate</string>
+    <string name="serving_size">Serving Size</string>
+    <string name="ex_soupp">ex.soup</string>
+    <string name="display_information_from_nl">Display information from NL</string>
+    <string name="display_information_from_the_database">Display information from THE DATABASE</string>
+    <string name="ex_soup">ex.soup</string>
+    <string name="add_food">Add Food</string>
+    <string name="add_item_in_meal">Add item in Meal</string>
+    <string name="type">Type</string>
+    <string name="item_quantity">Item Quantity</string>
+    <string name="no_item_found">No items found with this name!</string>
+    <string name="your_items">Your Items</string>
+
+    <string name="meal_type">Meal Type</string>
+    <string name="meal_item_name">Meal item Name</string>
+    <string name="statistical_information_for_a_month" translatable="false">Statistical information for a month</string>
+    <string name="history">History</string>
+    <string name="phonelock" translatable="false">phonelock</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="loginn">Login</string>
+    <string name="avatar" translatable="false">avatar</string>
+    <string name="usernamee">Username</string>
+    <string name="forget_password2">Forget Password?</string>
+    <string name="password2">Password</string>
+    <string name="_2020_meqyass" translatable="false">© 2020 MEQYAS</string>
+    <string name="reem_noor8">Reem Noor</string>
+    <string name="username">Username</string>
+    <string name="reem1994">Reem1994</string>
+    <string name="agee">Age</string>
+    <string name="weightt">Weight</string>
+    <string name="hightt">Hight</string>
+    <string name="no">No</string>
+    <string name="password3">Password</string>
+    <string name="__25">25</string>
+    <string name="__160_cm">160 cm</string>
+    <string name="_0966_5" translatable="false">+9665</string>
+    <string name="_2020_meqyas3" translatable="false">© 2020 MEQYAS</string>
+    <string name="_100_units_ml">100 Units/mL</string>
+    <string name="_24_1_maintain_weight" translatable="false">24.1 - Maintain your weight</string>
+    <string name="do_you_have_diabetes">Do you have diabetes</string>
+    <string name="bmii">BMI</string>
+    <string name="phone_number2">Phone Number</string>
+    <string name="yes">Yes</string>
+    <string name="example_gmailcom" translatable="false">example@gmail.com</string>
+    <string name="email2">Email</string>
+    <string name="_55_kgg">55 kg</string>
+    <string name="insulin_dose">Insulin dose</string>
+    <string name="_2020_meqyas" translatable="false">© 2021 MEQYAS</string>
+    <string name="i_am_diabetic" translatable="false">I am diabetic</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="_24_1_maintain_your_weight" translatable="false">24.1 - Maintain your weight</string>
+    <string name="bmi_hint">Enter Weight and Height to calculate</string>
+    <string name="bmi">BMI</string>
+    <string name="_160_cm">160 cm</string>
+    <string name="reem_noor">Reem Noor</string>
+    <string name="my_information">My Information</string>
+    <string name="username_reem1994">username: reem1994</string>
+    <string name="phone_hint" translatable="false">+96598765432</string>
+    <string name="example_gmail_com" translatable="false">example@gmail.com</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="_966_5" translatable="false">+966 5</string>
+    <string name="age">Age</string>
+    <string name="weight">Weight (kg)</string>
+    <string name="hight">Hight (cm)</string>
+    <string name="_25" translatable="false">25</string>
+    <string name="_55_kg">55 kg</string>
+    <string name="pic" translatable="false">pic</string>
+    <string name="photo">photo</string>
+    <string name="lang">lang</string>
+    <string name="dinner">dinner</string>
+    <string name="launch">Launch</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="snack">snack</string>
+    <string name="more">More</string>
+    <string name="meqyas2" translatable="false">MEQYAS2</string>
+    <string name="options">options</string>
+    <string name="stat">stat</string>
+    <string name="change">change</string>
+    <string name="scan">Scan NL</string>
+    <string name="required">Required Field</string>
+    <string name="login_error">Phone or Password are wrong try again, Or tap on forget password!</string>
+    <string name="logging">logging…</string>
+    <string name="diabetes_types">Diabetes Types</string>
+    <string name="type_one">Type 1</string>
+    <string name="type_two">Type 2</string>
+    <string name="type_three">Gestational Diabetes (GDM)</string>
+    <string name="daily_insulin_dose">Daily insulin dose</string>
+    <string name="otp_hint">Enter the code…</string>
+    <string name="verify">Verify</string>
+    <string name="new_password">Enter New Password</string>
+    <string name="confirm_password">Confirm New Password</string>
+    <string name="resetting">Resetting…</string>
+    <string name="saving">Saving…</string>
+    <string name="saved">Saved Successfully</string>
+    <string name="no_match">no match with password</string>
+    <string name="g">g</string>
+    <string name="mg">mg</string>
+    <string name="cal">Cal</string>
+    <string name="no_chart">no data yet, start add some items in your meals</string>
+    <string name="chart_title">Daily Graph</string>
+    <string name="chart_title_life">Life Time Graph</string>
+    <string name="meals_title">Daily Meals</string>
+    <string name="blood_sugar_title">Blood Sugar</string>
+    <string name="blood_sugar_hint">Blood Sugar Amount</string>
+    <string name="more_button">More ></string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="select_source">Select Source</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="updating">Updating…</string>
+    <string name="insulin_to_carps_title">Insulin to Carbohydrates Ratios</string>
+    <string name="high_blood_sugar_status">Your blood sugar is high, You can take 1 insulin units to drop the blood sugar level by </string>
+    <string name="normal_blood_sugar_status">Your blood sugar is normal, Keep it like this and take care</string>
+    <string name="low_blood_sugar_status">Your blood sugar is low, You need to eat some sweets now</string>
+    <string name="item_name">Item Name</string>
+    <string name="zero" translatable="false">0.0</string>
+    <string name="enter_valid">Enter Valid Value!</string>
+    <string name="card_no">Card No</string>
+    <string name="car_no">Car No</string>
+    <string name="station_name">Station Name</string>
+    <string name="governorate">Governorate</string>
+    <string name="city">City</string>
+    <string name="images">Images</string>
+    <string name="add_image">Add Image</string>
+    <string name="have_tanks_in_my_station">Have tanks in my station</string>
+    <string name="no_data_found">No Data Found!</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="tank_requests">Tank Requests</string>
+    <string name="profile">Profile</string>
+    <string name="reservations">Reservations</string>
+    <string name="station_calender">Station Calender</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_seller_main">SellerMainActivity</string>
+    <string name="wallet">Wallet</string>
+    <string name="current_balance">Current Balance</string>
+    <string name="actual_balance">Actual Balance</string>
+    <string name="pending_balance">Pending Balance</string>
+    <string name="finished">Finished</string>
+    <string name="place_bid">Place Bid</string>
+    <string name="review_item">Review Item</string>
+    <string name="view_bids">View Bids</string>
+    <string name="edit_item">Edit Item</string>
+    <string name="init_value">Init Value</string>
+    <string name="category">Category</string>
+    <string name="item_images">Item Images</string>
+    <string name="end_date">End Date</string>
+    <string name="start_date">Start Date</string>
+    <string name="approved">Approved</string>
+    <string name="end_time">End Time</string>
+    <string name="start_time">Start Time</string>
+    <string name="categories">Categories</string>
+    <string name="max_amount">Max Amount</string>
+    <string name="max_cars">Max Cars</string>
+    <string name="show_on_map">Show On Map</string>
+    <string name="tank_request">Tank Request</string>
+    <string name="amount">Amount</string>
+    <string name="tab_categories">Categories</string>
+    <string name="tab_Brands">Brands</string>
+    <string name="tab_companies">Companies</string>
+    <string name="tab_products">Products</string>
+    <string name="tab_orders">Orders</string>
+    <string name="pet_owener">Pet Owener</string>
+    <string name="pet_caregiver">Pet Caregiver</string>
+    <string name="supplier_name">Supplier Name</string>
+    <string name="place_your_location">Place your location</string>
+    <string name="pet_kind">pet kind</string>
+    <string name="pet_gander">pet gander</string>
+    <string name="images_for_pet">images for pet</string>
+    <string name="calender" />
+    <string name="caregiver_calender">Caregiver Calender</string>
+    <string name="requests">Requests</string>
+    <string name="supplier_chat">supplier chat</string>
+
+</resources>

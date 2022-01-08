@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#91ADF6</color>
+    <color name="colorPrimaryDark">#91ADF6</color>
+    <color name="colorPrimaryMidDark">#91ADF6</color>
+    <color name="colorPrimaryVeryDark">#01155E</color>
+    <color name="yellow">#FFc758</color>
+    <color name="darkBlue">#192e75</color>
+    <color name="red">#ec4b56</color>
+    <color name="greenGray">#8b8554</color>
+    <color name="colorAccent">#D1B07F</color>
+    <color name="colorAccentDark">#D6B584</color>
+    <color name="colorTransparent">#00ffffff</color>
+    <color name="colorSoftBlue">#9ACDE0</color>
+    <color name="colorLightBlue">#CBE1EF</color>
+    <color name="colorPink">#FFDDD3</color>
+    <color name="colorLightYellow">#FDF8E2</color>
+    <color name="colorLightGray">#9F9FB8</color>
+    <color name="colorGray">#626168</color>
+    <color name="colorDarkGray">#3D3C41</color>
+    <color name="colorWhite">#F6F6F6</color>
+    <color name="colorRed">#c93d3d</color>
+    <color name="colorBlue">#4698ae</color>
+    <color name="colorGreen">#3b924d</color>
+    <color name="colorDark">#306877</color>
+    <color name="whiteCardColor">#fff</color>
+    <color name="purple_200">#ffffff</color>
+    <color name="purple_700">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="teal_200">#4698ae</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="mapboxBlue">#4264fb</color>
+    <color name="colorYellow">#FEBD2B</color>
+
+
+
+    <color name="colorDarkWhite">#E8E8EC</color>
+
+    <color name="colorPrimaryVariant">#FF3700B3</color>
+</resources>

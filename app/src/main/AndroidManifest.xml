@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app.pethouse">
+    <!-- internet related permissions -->
+    <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- storage & contact related permissions -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- audio related permissions -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- Map related permissions -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /> <!-- related permissions -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activities.general.ImageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.general.IncomingCallActivity" />
+        <activity
+            android:name=".activities.general.ChatActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.auth.SupplierRegisterActivity" />
+        <activity android:name=".activities.general.RateActivity" />
+        <activity android:name=".activities.owener.PayActivity" />
+        <activity android:name=".activities.owener.OwenerProfileActivity" />
+        <activity android:name=".activities.supplier.SupplierNavigationActivity" />
+        <activity android:name=".activities.general.SuppliersCalenderActivity" />
+        <activity android:name=".activities.supplier.PlacePickerActivity" />
+        <activity android:name=".activities.supplier.RequestsActivity" />
+        <activity android:name=".activities.auth.RegisterActivity" />
+        <activity android:name=".activities.general.SuppliersDetailsActivity" />
+        <activity android:name=".activities.admin.OwenersActivity" />
+        <activity
+            android:name=".activities.admin.SuppliersActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.admin.GovernoratesActivity"
+            android:theme="@style/AppTheme.NoActionBarBlack" />
+        <activity android:name=".activities.auth.ResetPasswordActivity" />
+        <activity android:name=".activities.auth.OTPActivity" />
+        <activity android:name=".activities.supplier.SupplierMainActivity" />
+        <activity android:name=".activities.owener.OwenerMainActivity" />
+        <activity android:name=".activities.admin.AdminMainActivity" />
+        <activity android:name=".activities.auth.ForgetPasswordActivity" />
+        <activity android:name=".activities.auth.LoginActivity" />
+        <activity android:name=".activities.auth.UserTypeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".utils.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".utils.IncomingCallService"/>
+
+        <receiver
+            android:name=".utils.CallNotificationActionReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="999">
+                <action android:name="ConstantApp.CALL_RECEIVE_ACTION" />
+                <action android:name="ConstantApp.CALL_CANCEL_ACTION"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
