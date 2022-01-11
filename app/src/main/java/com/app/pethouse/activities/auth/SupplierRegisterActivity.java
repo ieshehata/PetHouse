@@ -1,10 +1,5 @@
 package com.app.pethouse.activities.auth;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -25,6 +20,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.app.pethouse.R;
 import com.app.pethouse.activities.supplier.PlacePickerActivity;
 import com.app.pethouse.callback.StringCallback;
@@ -33,6 +33,7 @@ import com.app.pethouse.controller.UploadController;
 import com.app.pethouse.controller.UserController;
 import com.app.pethouse.model.CityModel;
 import com.app.pethouse.model.GovernorateModel;
+import com.app.pethouse.model.TypeModel;
 import com.app.pethouse.model.UserModel;
 import com.app.pethouse.utils.LoadingHelper;
 import com.app.pethouse.utils.SharedData;
@@ -92,11 +93,14 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
     private boolean isEditing = false;
     private UserModel supplier = new UserModel();
 
-    private LinearLayout governorateLayout, cityLayout;
-    private AutoCompleteTextView governorate, city;
+    private LinearLayout governorateLayout, cityLayout, typeLayout;
+    private AutoCompleteTextView governorate, city ,type;
     private ArrayList<String> governoratesNames = new ArrayList<>();
     private ArrayList<String> citiesNames = new ArrayList<>();
+    private ArrayList<String> typesNames = new ArrayList<>();
+
     private ArrayList<CityModel> cities = new ArrayList<>();
+    private TypeModel chosenType;
 
     private GovernorateModel chosenGovernorate;
     private CityModel chosenCity;
@@ -125,10 +129,11 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
         price = findViewById(R.id.price);
         nationality = findViewById(R.id.nationality);
         governorateLayout = findViewById(R.id.governorate_layout);
+        typeLayout = findViewById(R.id.type_layout);
         cityLayout = findViewById(R.id.city_layout);
+        type = findViewById(R.id.type);
         governorate = findViewById(R.id.governorate);
         city = findViewById(R.id.city);
-
         male = findViewById(R.id.male_button);
         female = findViewById(R.id.female_button);
         location = findViewById(R.id.place_location);
@@ -205,6 +210,15 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
                         .into(avatar);
             }
 
+            if(SharedData.supplier.getType().getKey() != null) {
+                for(int i = 0; i < SharedData.allTypes.size(); i++) {
+                    if(SharedData.allTypes.get(i).getName().equals(SharedData.supplier.getType().getName())) {
+                        type.getOnItemClickListener().onItemClick(null, null, i, i);
+                        type.setText(SharedData.allTypes.get(i).getName());
+                    }
+                }
+            }
+
             if(SharedData.supplier.getGovernorate().getKey() != null) {
                 for(int i = 0; i < SharedData.allGovernorates.size(); i++) {
                     if(SharedData.allGovernorates.get(i).getName().equals(SharedData.supplier.getGovernorate().getName())) {
@@ -268,6 +282,22 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
                     chosenCity = cities.get(position);
             }
         });
+
+        for(TypeModel typeModel: SharedData.allTypes) {
+            typesNames.add(typeModel.getName());
+        }
+
+        ArrayAdapter kindsAdapter = new ArrayAdapter<>(this, R.layout.list_item, typesNames);
+        type.setAdapter(kindsAdapter);
+
+        type.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                chosenType = SharedData.allTypes.get(position);
+
+            }
+        });
+
     }
 
     private void genderButtonsRefresh() {
@@ -344,6 +374,12 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
             return;
         }
 
+        if (chosenType == null ) {
+            Toast.makeText(SupplierRegisterActivity.this, "Select Type ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
         supplier.setName(name.getText().toString());
         supplier.setPhone(phone.getText().toString());
         supplier.setEmail(email.getText().toString());
@@ -352,6 +388,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
         supplier.setPrice(Double.parseDouble(price.getText().toString()));
         supplier.setGender(gender);
         supplier.setNationality(nationality.getText().toString());
+        supplier.setType(chosenType);
         supplier.setGovernorate(chosenGovernorate);
         supplier.setCity(chosenCity);
         supplier.setUserType(2);

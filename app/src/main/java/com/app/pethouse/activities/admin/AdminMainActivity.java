@@ -1,11 +1,11 @@
 package com.app.pethouse.activities.admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.pethouse.R;
 import com.app.pethouse.activities.auth.UserTypeActivity;
@@ -18,6 +18,8 @@ public class AdminMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
         (findViewById(R.id.system_data)).setOnClickListener(v -> startActivity(new Intent(this, GovernoratesActivity.class)));
+
+        (findViewById(R.id.types_supplier)).setOnClickListener(v -> startActivity(new Intent(this, TypesActivity.class)));
 
         (findViewById(R.id.suppliers)).setOnClickListener(v -> startActivity(new Intent(this, SuppliersActivity.class)));
 

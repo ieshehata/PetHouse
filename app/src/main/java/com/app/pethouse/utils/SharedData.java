@@ -5,6 +5,7 @@ import com.app.pethouse.model.ConversationModel;
 import com.app.pethouse.model.GovernorateModel;
 import com.app.pethouse.model.OrderCareModel;
 import com.app.pethouse.model.RateModel;
+import com.app.pethouse.model.TypeModel;
 import com.app.pethouse.model.UserHeaderModel;
 import com.app.pethouse.model.UserModel;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -40,6 +41,7 @@ public class SharedData {
     public static double latitude;
     public static OrderCareModel currentTime;
     public static RateModel currentRate;
+    public static ArrayList<TypeModel> allTypes = new ArrayList<>();
     public static ArrayList<GovernorateModel> allGovernorates = new ArrayList<>();
     public static ArrayList<CityModel> allCities = new ArrayList<>();
     public static final String USER_TYPE = "USER_TYPE";

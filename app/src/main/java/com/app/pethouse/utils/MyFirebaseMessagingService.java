@@ -1,30 +1,17 @@
 package com.app.pethouse.utils;
-
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.google.firebase.messaging.FirebaseMessagingService;
-import com.google.firebase.messaging.RemoteMessage;
-
-import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
-
-import androidx.core.content.ContextCompat;
+import androidx.work.WorkManager;
 
 import com.app.pethouse.activities.auth.LoginActivity;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 

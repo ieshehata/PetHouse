@@ -33,6 +33,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.admin.TypesActivity"></activity>
         <activity
             android:name=".activities.general.ImageActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -79,15 +80,14 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".utils.IncomingCallService"/>
+        <service android:name=".utils.IncomingCallService" />
 
         <receiver
             android:name=".utils.CallNotificationActionReceiver"
             android:enabled="true">
             <intent-filter android:priority="999">
                 <action android:name="ConstantApp.CALL_RECEIVE_ACTION" />
-                <action android:name="ConstantApp.CALL_CANCEL_ACTION"/>
+                <action android:name="ConstantApp.CALL_CANCEL_ACTION" />
             </intent-filter>
         </receiver>
     </application>

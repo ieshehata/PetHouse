@@ -71,6 +71,8 @@
     <string name="tab_requests">Requests</string>
 
     <string name="tab_gov">Governorates</string>
+    <string name="tab_type">Types</string>
+
     <string name="tab_cities">Cities</string>
 
     <string name="tab_posts">Posts</string>
@@ -484,6 +486,7 @@
     <string name="car_no">Car No</string>
     <string name="station_name">Station Name</string>
     <string name="governorate">Governorate</string>
+    <string name="types">Types</string>
     <string name="city">City</string>
     <string name="images">Images</string>
     <string name="add_image">Add Image</string>

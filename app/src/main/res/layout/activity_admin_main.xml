@@ -26,6 +26,19 @@
             android:textSize="18sp"/>
 
         <Button
+            android:id="@+id/types_supplier"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/back_rectangle"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorDarkGray"
+            android:textColor="@color/white"
+            android:text="Type Supplier"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+
+        <Button
             android:id="@+id/suppliers"
             android:layout_width="match_parent"
             android:layout_height="60dp"

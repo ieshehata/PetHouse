@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1013153745973",
-    "project_id": "pet-house-64c7a",
-    "storage_bucket": "pet-house-64c7a.appspot.com"
+    "project_number": "913805190111",
+    "project_id": "pet-house-e26fb",
+    "storage_bucket": "pet-house-e26fb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1013153745973:android:f2a6145ef5a5cffbf6f57c",
+        "mobilesdk_app_id": "1:913805190111:android:489a9120c1047ac1971a6a",
         "android_client_info": {
           "package_name": "com.app.pethouse"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1013153745973-gsi0845iu27ihupbc5lidc9mgirdlu3k.apps.googleusercontent.com",
+          "client_id": "913805190111-c5eltdu1etpe25tm5pd1ofbd6h2kl757.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAtuBmnhe_g4PCSea9hYzbtTzzghH1bayY"
+          "current_key": "AIzaSyBQtyQDHwzSkIXX33JUxnb-vf5ULhr_zQk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1013153745973-gsi0845iu27ihupbc5lidc9mgirdlu3k.apps.googleusercontent.com",
+              "client_id": "913805190111-c5eltdu1etpe25tm5pd1ofbd6h2kl757.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

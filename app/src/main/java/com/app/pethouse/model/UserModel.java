@@ -1,7 +1,6 @@
 package com.app.pethouse.model;
 
 import android.text.TextUtils;
-import android.util.Patterns;
 
 import java.util.Date;
 
@@ -21,6 +20,7 @@ public class UserModel {
     private Double longitude;
     private double price = 0.0;
     private int state; //-1>Blocked, 0->waiting, 1->Allowed
+    private TypeModel type = new TypeModel();
     private GovernorateModel governorate = new GovernorateModel();
     private CityModel city = new CityModel();
     private String profileImage = "";
@@ -43,7 +43,7 @@ public class UserModel {
         this.userType = 1;
     }
 
-    public UserModel(String key, String name, String email, String phone, String pass, String description, int gender, String nationality, String petName, String petKind, String petGander, Double latitude, Double longitude, double price, int state, GovernorateModel governorate, CityModel city, String profileImage, String imagePet, int activated, int userType, Date createdAt, int gender1, boolean isPublic, String fcmToken) {
+    public UserModel(String key, String name, String email, String phone, String pass, String description, int gender, String nationality, String petName, String petKind, String petGander, Double latitude, Double longitude, double price, int state, TypeModel type, GovernorateModel governorate, CityModel city, String profileImage, String imagePet, int activated, int userType, Date createdAt, boolean isPublic, String fcmToken) {
         this.key = key;
         this.name = name;
         this.email = email;
@@ -59,6 +59,7 @@ public class UserModel {
         this.longitude = longitude;
         this.price = price;
         this.state = state;
+        this.type = type;
         this.governorate = governorate;
         this.city = city;
         this.profileImage = profileImage;
@@ -66,7 +67,6 @@ public class UserModel {
         this.activated = activated;
         this.userType = userType;
         this.createdAt = createdAt;
-        this.gender = gender1;
         this.isPublic = isPublic;
         this.fcmToken = fcmToken;
     }
@@ -220,6 +220,14 @@ public class UserModel {
 
     public void setState(int state) {
         this.state = state;
+    }
+
+    public TypeModel getType() {
+        return type;
+    }
+
+    public void setType(TypeModel type) {
+        this.type = type;
     }
 
     public GovernorateModel getGovernorate() {
