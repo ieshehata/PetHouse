@@ -2,7 +2,6 @@ package com.app.pethouse.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -10,16 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.pethouse.R;
-import com.app.pethouse.activities.general.ChatActivity;
-import com.app.pethouse.callback.ConversationCallback;
-import com.app.pethouse.controller.ConversationController;
 import com.app.pethouse.model.ConversationModel;
 import com.app.pethouse.model.UserHeaderModel;
 import com.app.pethouse.utils.SharedData;
@@ -31,10 +26,15 @@ import java.util.ArrayList;
 public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapter.ViewHolder> {
     private ArrayList<ConversationModel> mData = new ArrayList<>();
     private Context context;
+    private ConversationAdapter.ConversationListener mConversationListener;
 
-    public ConversationAdapter(ArrayList<ConversationModel> data) {
-        mData.clear();
-        this.mData.addAll(data);
+
+    public ConversationAdapter(ArrayList<ConversationModel> data,ConversationListener conversationListener) {
+        this.mData = data;
+        this.mConversationListener = conversationListener;
+    }
+
+    public ConversationAdapter(ArrayList<ConversationModel> currentList) {
     }
 
     @NonNull
@@ -42,7 +42,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.row_conversation, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, mConversationListener);
     }
 
     @SuppressLint("UseCompatTextViewDrawableApis")
@@ -115,37 +115,36 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         View view;
-
-        ImageView profileImage, stateIcon;
+        ImageView profileImage, stateIcon, delete;
         TextView title, lastMessage, date;
-
-        ViewHolder(View itemView) {
+        ConversationListener listener;
+        ViewHolder(View itemView, ConversationListener listener) {
             super(itemView);
             view = itemView.findViewById(R.id.view);
             profileImage = itemView.findViewById(R.id.profile_image);
             stateIcon = itemView.findViewById(R.id.state_icon);
             title = itemView.findViewById(R.id.title);
+            delete = itemView.findViewById(R.id.delete);
+
             lastMessage = itemView.findViewById(R.id.last_message);
             date = itemView.findViewById(R.id.date);
+            this.listener = listener;
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.deleteItem(getAdapterPosition());
+                }
+            });
 
             view.setOnClickListener(v -> {
-                if (!mData.get(getAdapterPosition()).getLastMessageUserKey().equals(SharedData.currentUser.getKey())) {
-                    mData.get(getAdapterPosition()).setLastMessageState(1);
-                    new ConversationController().save(mData.get(getAdapterPosition()), new ConversationCallback() {
-                        @Override
-                        public void onSuccess(ArrayList<ConversationModel> conversations) {
-                        }
+                listener.view(getAdapterPosition());
+            });        }
+    }
 
-                        @Override
-                        public void onFail(String error) {
-                            Toast.makeText(context, error, Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
-                SharedData.currentConversation = mData.get(getAdapterPosition());
-                Intent postDetails = new Intent(context, ChatActivity.class);
-                context.startActivity(postDetails);
-            });
-        }
+    public interface ConversationListener {
+        void response(int position, boolean isBlocking);
+        void deleteItem(int position);
+        void view(int position);
+
     }
 }

@@ -32,8 +32,10 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activities.admin.TypesActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:targetApi="q">
+        <activity android:name=".activities.general.ChatsActivity"></activity>
+        <activity android:name=".activities.admin.TypesActivity" />
         <activity
             android:name=".activities.general.ImageActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -44,7 +46,6 @@
         <activity android:name=".activities.auth.SupplierRegisterActivity" />
         <activity android:name=".activities.general.RateActivity" />
         <activity android:name=".activities.owener.PayActivity" />
-        <activity android:name=".activities.owener.OwenerProfileActivity" />
         <activity android:name=".activities.supplier.SupplierNavigationActivity" />
         <activity android:name=".activities.general.SuppliersCalenderActivity" />
         <activity android:name=".activities.supplier.PlacePickerActivity" />

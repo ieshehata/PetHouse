@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root"
+    android:orientation="vertical"
+    tools:context=".activities.general.ChatsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/all_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:padding="4dp"
+            android:text="General"
+            android:textColor="@color/colorPrimaryVeryDark"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/group_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@color/colorLightGray"
+            android:padding="4dp"
+            android:text="Group"
+            android:textColor="@color/colorPrimaryVeryDark"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/private_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@color/colorLightGray"
+            android:padding="4dp"
+            android:text="Private"
+            android:textColor="@color/colorPrimaryVeryDark"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
+
+</LinearLayout>

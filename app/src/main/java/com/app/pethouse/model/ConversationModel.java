@@ -13,13 +13,14 @@ public class ConversationModel {
     private String chatKey;
     private Date createdAt;
     private String blockedBy = "";
+    private int type; // 0->general, 1->group, 2->private
     private int state; // -1->deleted, 1->Active
     private int isFeedback; // 0->No, 1->Yes
 
     public ConversationModel() {
     }
 
-    public ConversationModel(String key, ArrayList<UserHeaderModel> participants, String lastMessage, Date lastMessageDate, int lastMessageState, String lastMessageUserKey, String chatKey, Date createdAt, String blockedBy, int state, int isFeedback) {
+    public ConversationModel(String key, ArrayList<UserHeaderModel> participants, String lastMessage, Date lastMessageDate, int lastMessageState, String lastMessageUserKey, String chatKey, Date createdAt, String blockedBy, int type, int state, int isFeedback) {
         this.key = key;
         this.participants = participants;
         this.lastMessage = lastMessage;
@@ -29,6 +30,7 @@ public class ConversationModel {
         this.chatKey = chatKey;
         this.createdAt = createdAt;
         this.blockedBy = blockedBy;
+        this.type = type;
         this.state = state;
         this.isFeedback = isFeedback;
     }
@@ -103,6 +105,14 @@ public class ConversationModel {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getState() {

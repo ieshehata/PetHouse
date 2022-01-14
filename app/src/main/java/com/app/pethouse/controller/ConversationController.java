@@ -237,6 +237,24 @@ public class ConversationController {
         });
     }
 
+    public void delete(ConversationModel model, final ConversationCallback callback) {
+        myRef = database.getReference(node+"/"+model.getKey());
+        myRef.removeValue()
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        callback.onFail(e.toString());
+                    }
+                })
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        conversations = new ArrayList<>();
+                        callback.onSuccess(conversations);
+                    }
+                });    }
+
+
     public void newConversation(UserModel to, final ConversationCallback callback) {
         ConversationModel conversation = new ConversationModel();
         ArrayList<UserHeaderModel> participants = new ArrayList<>();
