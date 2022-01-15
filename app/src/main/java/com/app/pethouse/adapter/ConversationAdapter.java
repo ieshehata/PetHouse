@@ -21,12 +21,15 @@ import com.app.pethouse.utils.SharedData;
 import com.app.pethouse.utils.Utils;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapter.ViewHolder> {
     private ArrayList<ConversationModel> mData = new ArrayList<>();
     private Context context;
-    private ConversationAdapter.ConversationListener mConversationListener;
+    private ConversationListener mConversationListener;
+    private SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy - hh:mm aa");
+
 
 
     public ConversationAdapter(ArrayList<ConversationModel> data,ConversationListener conversationListener) {
@@ -34,8 +37,6 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
         this.mConversationListener = conversationListener;
     }
 
-    public ConversationAdapter(ArrayList<ConversationModel> currentList) {
-    }
 
     @NonNull
     @Override
@@ -48,16 +49,13 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
     @SuppressLint("UseCompatTextViewDrawableApis")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         UserHeaderModel other = new UserHeaderModel();
         for (UserHeaderModel participant : mData.get(position).getParticipants()) {
             if (!participant.getKey().equals(SharedData.currentUser.getKey()) && mData.get(position).getParticipants().size() == 2) {
                 other = participant;
             }
         }
-
         holder.title.setText(other.getName());
-
         if (!TextUtils.isEmpty(other.getProfileImage())) {
             holder.profileImage.setImageTintList(null);
             Picasso.get()
@@ -95,6 +93,9 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
             holder.stateIcon.setVisibility(View.GONE);
         }
 
+
+
+
     }
 
 
@@ -129,12 +130,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
             lastMessage = itemView.findViewById(R.id.last_message);
             date = itemView.findViewById(R.id.date);
             this.listener = listener;
-            delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.deleteItem(getAdapterPosition());
-                }
-            });
+            delete.setOnClickListener(v -> listener.deleteItem(getAdapterPosition()));
 
             view.setOnClickListener(v -> {
                 listener.view(getAdapterPosition());
