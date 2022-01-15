@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "913805190111",
+    "firebase_url": "https://pet-house-e26fb-default-rtdb.firebaseio.com",
+    "project_id": "pet-house-e26fb",
+    "storage_bucket": "pet-house-e26fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913805190111:android:489a9120c1047ac1971a6a",
+        "android_client_info": {
+          "package_name": "com.app.pethouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913805190111-5o5nju5o07qsanhclaf7da8br9ce3tg4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.pethouse",
+            "certificate_hash": "bbab2c5af35ec8ffa0930b28a8f0b4a46fb4291a"
+          }
+        },
+        {
+          "client_id": "913805190111-c5eltdu1etpe25tm5pd1ofbd6h2kl757.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQtyQDHwzSkIXX33JUxnb-vf5ULhr_zQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913805190111-c5eltdu1etpe25tm5pd1ofbd6h2kl757.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
