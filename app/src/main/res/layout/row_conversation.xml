@@ -83,7 +83,7 @@
                 android:layout_marginStart="2dp"
                 android:contentDescription="@string/todo"
                 android:src="@drawable/ic_seen_24"
-                app:tint="@color/colorPrimaryDark" />
+                app:tint="@color/colorPrimaryMidDark" />
         </LinearLayout>
 
         <View
