@@ -18,10 +18,10 @@
         android:id="@+id/location"
         android:layout_alignParentBottom="true"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:text="Select Location"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimaryMidDark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

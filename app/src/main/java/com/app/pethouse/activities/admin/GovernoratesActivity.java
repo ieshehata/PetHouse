@@ -1,12 +1,13 @@
 package com.app.pethouse.activities.admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import com.app.pethouse.R;
 import com.app.pethouse.activities.admin.fragment.DataPageAdapter;
@@ -31,7 +32,6 @@ public class GovernoratesActivity extends AppCompatActivity implements DataDialo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_governorates);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent intent = getIntent();
@@ -58,7 +58,6 @@ public class GovernoratesActivity extends AppCompatActivity implements DataDialo
             }
         });
     }
-
 
     @Override
     public void onBackPressed(){

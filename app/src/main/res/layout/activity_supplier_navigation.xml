@@ -23,8 +23,8 @@
         android:layout_marginEnd="16dp"
         android:enabled="false"
         android:text="Start navigation"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:backgroundTint="@color/colorPrimaryMidDark"
+        android:textColor="@color/white"
         mapbox:layout_constraintStart_toStartOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

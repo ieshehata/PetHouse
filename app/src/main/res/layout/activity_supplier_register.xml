@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     android:theme="@style/Theme.MaterialComponents.Light"
     tools:context=".activities.auth.SupplierRegisterActivity">
 
@@ -43,7 +44,8 @@
                     android:layout_gravity="center_horizontal"
                     android:adjustViewBounds="true"
                     android:layout_marginTop="16dp"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@color/colorPrimaryMidDark"
+
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/ic_add_photo_60" />
 
@@ -203,7 +205,7 @@
                         android:textColor="@color/whiteCardColor"
                         android:textSize="12sp"
                         android:theme="@style/Theme.MaterialComponents"
-                        app:backgroundTint="@color/colorPrimaryDark"
+                        app:backgroundTint="@color/colorPrimaryMidDark"
                         app:cornerRadius="8dp"
                         app:rippleColor="#33AAAAAA"
                         app:strokeColor="@color/colorDarkGray"
@@ -317,7 +319,7 @@
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:text="Place your location"
-                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:backgroundTint="@color/colorPrimaryMidDark"
                     android:textColor="@color/colorPrimaryVeryDark"
                     android:textSize="18sp" />
 
@@ -327,7 +329,7 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="@string/register"
                     android:textColor="@color/colorPrimaryVeryDark"
                     android:textSize="18sp" />

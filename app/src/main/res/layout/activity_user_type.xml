@@ -37,9 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="16dp"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimaryMidDark"
             android:text="Admin"
-            android:textColor="@color/colorPrimaryVeryDark"
+            android:textColor="@color/white"
             android:textSize="24sp"/>
 
 
@@ -48,17 +48,17 @@
             android:id="@+id/pet_supplier"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimaryMidDark"
             android:text="Supplier"
-            android:textColor="@color/colorPrimaryVeryDark"
+            android:textColor="@color/white"
             android:textSize="24sp"/>
 
         <Button
             android:id="@+id/pet_owner"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:textColor="@color/colorPrimaryVeryDark"
+            android:backgroundTint="@color/colorPrimaryMidDark"
+            android:textColor="@color/white"
             android:text="Owner"
             android:textSize="24sp"/>
     </LinearLayout>

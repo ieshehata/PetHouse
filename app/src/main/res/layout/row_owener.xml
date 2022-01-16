@@ -142,9 +142,9 @@
             android:layout_weight="1"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryMidDark"
             android:text="Unblock"
-            android:textColor="@color/colorPrimaryVeryDark"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"/>
     </LinearLayout>

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg1"
     tools:context=".activities.admin.OwenersActivity"
     android:theme="@style/Theme.MaterialComponents.Light">
 
@@ -25,10 +26,10 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimaryMidDark"
             android:padding="4dp"
             android:text="All "
-            android:textColor="@color/colorPrimaryVeryDark"
+            android:textColor="@color/white"
             android:textSize="12sp" />
 
         <Button

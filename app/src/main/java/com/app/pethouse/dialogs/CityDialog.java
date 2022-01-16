@@ -3,6 +3,7 @@ package com.app.pethouse.dialogs;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import com.google.firebase.database.annotations.NotNull;
 import java.util.ArrayList;
 
 public class CityDialog extends AppCompatDialogFragment {
+    private Spinner spinner;
     private EditText name;
     private DataDialogListener listener;
     private String oldName = "";
@@ -37,24 +39,32 @@ public class CityDialog extends AppCompatDialogFragment {
     }
 
     @Override
-    public @org.jetbrains.annotations.NotNull Dialog onCreateDialog(Bundle savedInstanceState) {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_city, null);
 
         builder.setView(view)
-                .setNegativeButton("Cancel", (dialogInterface, i) -> listener.onError("Canceled!"))
-                .setPositiveButton("Add", (dialogInterface, i) -> {
-                    if(!TextUtils.isEmpty(name.getText().toString()) && governorate != null) {
-                        listener.getData(name.getText().toString(), governorate);
-                    }else {
-                        listener.onError("You need to write the name and choose the governorate!");
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        listener.onError("Canceled!");
+                    }
+                })
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(!TextUtils.isEmpty(name.getText().toString()) && governorate != null) {
+                            listener.getData(name.getText().toString(), governorate);
+                        }else {
+                            listener.onError("You need to write the name and choose the governorate!");
+                        }
                     }
                 });
 
         name = view.findViewById(R.id.name);
-        Spinner spinner = view.findViewById(R.id.governorates_spinner);
+        spinner = view.findViewById(R.id.governorates_spinner);
 
         ArrayList<String> governoatesStringList = new ArrayList<>();
         for (GovernorateModel governorateModel : SharedData.allGovernorates) {

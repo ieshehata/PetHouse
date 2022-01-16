@@ -10,11 +10,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.app.pethouse.R;
 import com.app.pethouse.activities.admin.fragment.TypePageAdapter;
-import com.app.pethouse.callback.GovernorateCallback;
-import com.app.pethouse.controller.GovernorateController;
+import com.app.pethouse.callback.TypeCallback;
+import com.app.pethouse.controller.TypeController;
 import com.app.pethouse.dialogs.CityDialog;
 import com.app.pethouse.dialogs.DataDialog;
-import com.app.pethouse.model.GovernorateModel;
+import com.app.pethouse.model.TypeModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -65,13 +65,12 @@ public class TypesActivity extends AppCompatActivity implements DataDialog.DataD
     private void showSnackbar(String message) {
         Snackbar.make(mRootView, message, Snackbar.LENGTH_LONG).show();
     }
-
     @Override
     public void getData(String name) {
         if(currentTab == 0){
-            new GovernorateController().newGovernorate(name, new GovernorateCallback() {
+            new TypeController().newType(name, new TypeCallback() {
                 @Override
-                public void onSuccess(ArrayList<GovernorateModel> governorates) {}
+                public void onSuccess(ArrayList<TypeModel> types) {}
 
                 @Override
                 public void onFail(String error) {
@@ -80,6 +79,8 @@ public class TypesActivity extends AppCompatActivity implements DataDialog.DataD
             });
         }
     }
+
+
 
     @Override
     public void onError(String error) {

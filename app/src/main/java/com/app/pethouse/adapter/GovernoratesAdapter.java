@@ -47,16 +47,6 @@ public class GovernoratesAdapter extends RecyclerView.Adapter<GovernoratesAdapte
         return this.mData;
     }
 
-    public void remove(int position) {
-        //mData.remove(position);
-        notifyItemRemoved(position);
-    }
-
-    public void restore(GovernorateModel item, int position) {
-        //mData.add(position, item);
-        notifyItemInserted(position);
-    }
-
     public void updateData(ArrayList<GovernorateModel> newData) {
         mData.clear();
         mData.addAll(newData);

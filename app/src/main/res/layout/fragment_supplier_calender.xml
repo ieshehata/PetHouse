@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+
     tools:context=".activities.general.fragment.SupplierCalenderFragment"
     android:theme="@style/Theme.MaterialComponents.Light">
 
@@ -39,13 +41,14 @@
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/caldroid_gray"
                     android:layout_marginTop="8dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:background="@color/colorTransparent"
+                    android:background="@color/whiteCardColor"
                     android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="wrap_content"

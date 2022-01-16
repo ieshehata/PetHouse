@@ -44,7 +44,7 @@
                     android:layout_height="120dp"
                     android:layout_gravity="center_horizontal"
                     android:adjustViewBounds="true"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@color/colorPrimaryMidDark"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/ic_add_photo_60" />
 
@@ -139,9 +139,9 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="@string/register"
-                    android:textColor="@color/colorPrimaryVeryDark"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
 
                 <Button

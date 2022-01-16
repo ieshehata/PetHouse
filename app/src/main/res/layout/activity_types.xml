@@ -5,6 +5,8 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+
     tools:context=".activities.admin.TypesActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -38,8 +40,8 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_add_24"
-        android:tint="@color/colorPrimaryVeryDark"
-        app:backgroundTint="@color/colorPrimaryDark"
+        android:tint="@color/white"
+        app:backgroundTint="@color/colorPrimaryMidDark"
         app:fabSize="auto"
         app:maxImageSize="36dp" />
 

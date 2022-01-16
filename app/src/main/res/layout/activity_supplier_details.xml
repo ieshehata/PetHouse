@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg1"
     tools:context=".activities.general.SuppliersDetailsActivity"
     android:theme="@style/Theme.MaterialComponents.Light">
 
@@ -25,7 +26,7 @@
                 android:layout_height="180dp"
                 android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorPrimaryMidDark"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_add_photo_60" />
 
@@ -184,7 +185,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="Supplier Calender"
                     android:textColor="@color/colorPrimaryVeryDark" />
 
@@ -193,7 +194,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="@string/show_on_map"
                     android:textColor="@color/colorPrimaryVeryDark" />
 
@@ -202,7 +203,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="rates"
                     android:textColor="@color/colorPrimaryVeryDark" />
 
@@ -211,7 +212,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="send msg"
                     android:textColor="@color/colorPrimaryVeryDark" />
 

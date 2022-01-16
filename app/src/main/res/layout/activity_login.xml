@@ -93,9 +93,9 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:background="@color/colorPrimaryMidDark"
                 android:text="@string/login"
-                android:textColor="@color/colorPrimaryVeryDark"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <Button

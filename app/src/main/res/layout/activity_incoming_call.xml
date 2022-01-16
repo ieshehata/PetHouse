@@ -27,6 +27,8 @@
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         android:textStyle="bold"
+        android:backgroundTint="@color/colorPrimaryMidDark"
+        android:textColor="@color/white"
         android:text="Open Messages"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

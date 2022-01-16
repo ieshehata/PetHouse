@@ -17,12 +17,11 @@ import com.app.pethouse.model.TypeModel;
 import java.util.ArrayList;
 
 public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
-    private ArrayList<TypeModel> mData = new ArrayList<>();
+    private ArrayList<TypeModel> mData ;
     private Context context;
-    private TypeAdapter.TypeListener mTypeListener;
+    private TypeListener mTypeListener;
 
-
-    public TypeAdapter(ArrayList<TypeModel> data, TypeAdapter.TypeListener typeListener) {
+    public TypeAdapter(ArrayList<TypeModel> data, TypeListener typeListener) {
         this.mData = data;
         this.mTypeListener = typeListener;
     }
@@ -32,7 +31,7 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.row_type, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, mTypeListener);
     }
 
     @SuppressLint("UseCompatTextViewDrawableApis")
@@ -41,7 +40,6 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
         holder.name.setText(mData.get(position).getName());
 
     }
-
 
     @Override
     public int getItemCount() {
@@ -62,9 +60,9 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
         View view;
         TextView name;
         ImageButton delete;
-        TypeAdapter.TypeListener listener;
+        TypeListener listener;
 
-        ViewHolder(View itemView) {
+        ViewHolder(View itemView, TypeListener listener) {
             super(itemView);
             view = itemView.findViewById(R.id.view);
             name = itemView.findViewById(R.id.name);
@@ -79,11 +77,8 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
         }
     }
 
-
     public interface TypeListener {
         void onClick(int position);
         void deleteItem(int position);
-
     }
-
 }

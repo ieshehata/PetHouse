@@ -26,7 +26,7 @@ public class TypePageAdapter extends FragmentPagerAdapter {
         Fragment fragment = new Fragment();
         switch (position) {
             case 0:
-                fragment = new Fragment();
+                fragment = new TypesFragment();
                 break;
 
         }
