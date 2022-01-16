@@ -62,7 +62,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
                     .load(other.getProfileImage())
                     .into(holder.profileImage);
         }else if(other.getKey().equals(SharedData.adminUser.getKey())) {
-            holder.profileImage.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimaryDark)));
+            holder.profileImage.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimaryMidDark)));
             holder.profileImage.setBackgroundResource(R.drawable.gradient_back);
             holder.profileImage.setImageResource(R.drawable.ic_report_24);
 
@@ -84,7 +84,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
             holder.stateIcon.setVisibility(View.VISIBLE);
             if (mData.get(position).getLastMessageState() == 1) {
                 holder.stateIcon.setImageResource(R.drawable.ic_seen_24);
-                holder.stateIcon.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimaryDark)));
+                holder.stateIcon.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimaryMidDark)));
             } else {
                 holder.stateIcon.setImageResource(R.drawable.ic_delivered_24);
                 holder.stateIcon.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorDarkGray)));

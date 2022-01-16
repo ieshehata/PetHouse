@@ -1,14 +1,14 @@
 package com.app.pethouse.activities.admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.pethouse.R;
 import com.app.pethouse.adapter.OwenerAdapter;
@@ -98,7 +98,7 @@ public class OwenersActivity extends AppCompatActivity implements OwenerAdapter.
         switch (v.getId()) {
             case R.id.all_button:
                 listFilter = 0;
-                allButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                allButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryMidDark));
                 allButton.setTextColor(ContextCompat.getColor(this, R.color.colorWhite));
 
                 activeButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorLightGray));
@@ -114,7 +114,7 @@ public class OwenersActivity extends AppCompatActivity implements OwenerAdapter.
                 allButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorLightGray));
                 allButton.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryVeryDark));
 
-                activeButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                activeButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryMidDark));
                 activeButton.setTextColor(ContextCompat.getColor(this, R.color.colorWhite));
 
                 inactiveButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorLightGray));
@@ -130,7 +130,7 @@ public class OwenersActivity extends AppCompatActivity implements OwenerAdapter.
                 activeButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorLightGray));
                 activeButton.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryVeryDark));
 
-                inactiveButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                inactiveButton.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryMidDark));
                 inactiveButton.setTextColor(ContextCompat.getColor(this, R.color.colorWhite));
                 filterUpdated();
                 break;

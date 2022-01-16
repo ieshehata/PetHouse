@@ -1,12 +1,5 @@
 package com.app.pethouse.activities.general;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -23,8 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.app.pethouse.R;
-import com.app.pethouse.activities.auth.LoginActivity;
 import com.app.pethouse.activities.auth.RegisterActivity;
 import com.app.pethouse.activities.auth.SupplierRegisterActivity;
 import com.app.pethouse.adapter.MessageAdapter;
@@ -136,7 +135,7 @@ public class ChatActivity extends AppCompatActivity {
                         .load(other.getProfileImage())
                         .into(profileImage);
             }else if(other.getKey().equals(SharedData.adminUser.getKey())) {
-                profileImage.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryDark)));
+                profileImage.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryMidDark)));
                 profileImage.setBackgroundResource(R.drawable.gradient_back);
                 profileImage.setImageResource(R.drawable.ic_report_24);
 

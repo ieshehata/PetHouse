@@ -58,7 +58,7 @@ public class SuppliersFragment extends Fragment implements SuppliersAdapter.Supp
         switch (v.getId()) {
             case R.id.all_button:
                 listFilter = 0;
-                allButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+                allButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryMidDark));
                 allButton.setTextColor(ContextCompat.getColor(getContext(), R.color.colorWhite));
 
                 activeButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorLightGray));
@@ -74,7 +74,7 @@ public class SuppliersFragment extends Fragment implements SuppliersAdapter.Supp
                 allButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorLightGray));
                 allButton.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryVeryDark));
 
-                activeButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+                activeButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryMidDark));
                 activeButton.setTextColor(ContextCompat.getColor(getContext(), R.color.colorWhite));
 
                 inactiveButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorLightGray));
@@ -90,7 +90,7 @@ public class SuppliersFragment extends Fragment implements SuppliersAdapter.Supp
                 activeButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorLightGray));
                 activeButton.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryVeryDark));
 
-                inactiveButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+                inactiveButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryMidDark));
                 inactiveButton.setTextColor(ContextCompat.getColor(getContext(), R.color.colorWhite));
                 filterUpdated();
                 break;

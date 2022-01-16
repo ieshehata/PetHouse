@@ -153,7 +153,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
 
         male.setOnClickListener(v -> {
             gender = 1;
-            male.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryDark)));
+            male.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryMidDark)));
             male.setTextColor(ContextCompat.getColor(this, R.color.whiteCardColor));
             male.setStrokeWidth(0);
 
@@ -164,7 +164,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
 
         female.setOnClickListener(v -> {
             gender = 0;
-            female.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryDark)));
+            female.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryMidDark)));
             female.setTextColor(ContextCompat.getColor(this, R.color.whiteCardColor));
             female.setStrokeWidth(0);
 
@@ -303,7 +303,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
     private void genderButtonsRefresh() {
         switch (gender) {
             case 0: //female
-                female.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryDark)));
+                female.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryMidDark)));
                 female.setTextColor(ContextCompat.getColor(this, R.color.whiteCardColor));
                 female.setStrokeWidth(0);
 
@@ -312,7 +312,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
                 male.setStrokeWidth(2);
                 break;
             case 1: //male
-                male.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryDark)));
+                male.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryMidDark)));
                 male.setTextColor(ContextCompat.getColor(this, R.color.whiteCardColor));
                 male.setStrokeWidth(0);
 

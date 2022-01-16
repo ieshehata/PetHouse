@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimaryDark</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimaryMidDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryMidDark</item>
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
@@ -49,7 +49,7 @@
     </style>
 
     <style name="loginButton" parent="viewParent">
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimaryMidDark</item>
         <item name="android:textColor">@color/whiteCardColor</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -62,7 +62,7 @@
     <style name="AppTheme.NoActionBarPrimary">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryMidDark</item>
     </style>
 
     <style name="AppTheme.NoActionBarBlack">
@@ -76,7 +76,7 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="ProfileNameExpanded" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/colorPrimaryMidDark</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
     </style>

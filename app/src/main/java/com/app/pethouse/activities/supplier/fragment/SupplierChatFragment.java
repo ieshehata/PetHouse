@@ -102,7 +102,7 @@ public class SupplierChatFragment extends Fragment implements ConversationAdapte
         switch (v.getId()) {
             case R.id.all_button:
                 listFilter = 0;
-                allButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimaryDark));
+                allButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimaryMidDark));
                 allButton.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorWhite));
 
                 groupButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorLightGray));
@@ -118,7 +118,7 @@ public class SupplierChatFragment extends Fragment implements ConversationAdapte
                 allButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorLightGray));
                 allButton.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimaryVeryDark));
 
-                groupButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimaryDark));
+                groupButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimaryMidDark));
                 groupButton.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorWhite));
 
                 privateButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorLightGray));
@@ -134,7 +134,7 @@ public class SupplierChatFragment extends Fragment implements ConversationAdapte
                 groupButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorLightGray));
                 groupButton.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimaryVeryDark));
 
-                privateButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimaryDark));
+                privateButton.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimaryMidDark));
                 privateButton.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorWhite));
                 filterUpdated();
                 break;
