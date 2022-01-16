@@ -153,7 +153,7 @@
                     android:text="@string/register_back_login"
                     android:textAlignment="center"
                     android:textSize="16sp"
-                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:backgroundTint="@color/colorPrimaryMidDark"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:textColor="@color/colorPrimaryVeryDark" />
 

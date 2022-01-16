@@ -153,7 +153,7 @@
             android:background="#00FFFFFF"
             android:text="Reject"
             android:textColor="@color/colorRed"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimaryMidDark"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -175,7 +175,7 @@
             android:background="#00FFFFFF"
             android:text="Accept"
             android:textColor="@color/colorPrimaryVeryDark"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimaryMidDark"
             android:textSize="16sp"
             android:textStyle="bold"/>
     </LinearLayout>
