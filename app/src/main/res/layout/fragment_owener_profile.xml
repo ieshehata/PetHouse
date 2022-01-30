@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg1"
     android:id="@+id/root"
     android:theme="@style/Theme.MaterialComponents.Light"
     tools:context=".activities.owener.fragment.OwenerProfileFragment">

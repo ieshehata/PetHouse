@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/root"
-    android:background="@drawable/bg1"
     android:theme="@style/Theme.MaterialComponents.Light"
     tools:context=".activities.owener.fragment.OwenerHomeFragment">
 

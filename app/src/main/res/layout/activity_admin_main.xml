@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg1"
     tools:context=".activities.admin.AdminMainActivity"
     android:theme="@style/Theme.MaterialComponents.Light">
 
@@ -16,8 +15,12 @@
 
         <Button
             android:id="@+id/system_data"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:backgroundTint="@color/colorPrimaryMidDark"
             android:textColor="@color/white"
             android:text="Governorates &amp; Cities"
@@ -26,9 +29,13 @@
 
         <Button
             android:id="@+id/types_supplier"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_margin="20dp"
+            android:padding="20dp"
+
+            android:gravity="center"
+            android:layout_gravity="center"
             android:backgroundTint="@color/colorPrimaryMidDark"
             android:textColor="@color/white"
             android:text="Type Supplier"
@@ -38,9 +45,12 @@
 
         <Button
             android:id="@+id/suppliers"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_margin="20dp"
+            android:padding="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:text="Suppliers"
             android:backgroundTint="@color/colorPrimaryMidDark"
             android:textColor="@color/white"
@@ -49,9 +59,12 @@
 
         <Button
             android:id="@+id/owners"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_margin="20dp"
+            android:padding="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:text="Owners"
             android:backgroundTint="@color/colorPrimaryMidDark"
             android:textColor="@color/white"
