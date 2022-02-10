@@ -93,10 +93,10 @@ public class SupplierNavigationActivity extends AppCompatActivity implements OnM
     }
 
     private void enableLocationComponent(@NonNull Style loadedMapStyle) {
-// Check if permissions are enabled and if not request
+        // Check if permissions are enabled and if not request
         if (PermissionsManager.areLocationPermissionsGranted(this)) {
-// Activate the MapboxMap LocationComponent to show user location
-// Adding in LocationComponentOptions is also an optional parameter
+            // Activate the MapboxMap LocationComponent to show user location
+            // Adding in LocationComponentOptions is also an optional parameter
             locationComponent = mapboxMap.getLocationComponent();
             locationComponent.activateLocationComponent(this, loadedMapStyle);
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

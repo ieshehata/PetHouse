@@ -10,10 +10,13 @@ import android.widget.ImageView;
 import com.app.pethouse.R;
 import com.app.pethouse.callback.CityCallback;
 import com.app.pethouse.callback.GovernorateCallback;
+import com.app.pethouse.callback.TypeCallback;
 import com.app.pethouse.controller.CityController;
 import com.app.pethouse.controller.GovernorateController;
+import com.app.pethouse.controller.TypeController;
 import com.app.pethouse.model.CityModel;
 import com.app.pethouse.model.GovernorateModel;
+import com.app.pethouse.model.TypeModel;
 import com.app.pethouse.utils.SharedData;
 
 import java.util.ArrayList;
@@ -48,6 +51,18 @@ public class UserTypeActivity extends AppCompatActivity {
             @Override
             public void onFail(String error) {}
         });
+
+
+        new TypeController().getTypesAlways(new TypeCallback() {
+            @Override
+            public void onSuccess(ArrayList<TypeModel> types) {
+                SharedData.allTypes = types;
+            }
+
+            @Override
+            public void onFail(String error) {}
+        });
+
 
         admin.setOnClickListener(v -> {
             SharedData.userType = 1;

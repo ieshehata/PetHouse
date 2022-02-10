@@ -349,21 +349,20 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
 
     @Override
     public void onValidationSucceeded() {
-      /*  if(supplier.getLatitude() == null || supplier.getLongitude() == null) {
+        if(supplier.getLatitude() == null || supplier.getLongitude() == null) {
             Toast.makeText(SupplierRegisterActivity.this, "place your location first!", Toast.LENGTH_SHORT).show();
             return;
-        }*/
+        }
 
         if (chosenGovernorate == null && chosenCity == null) {
             Toast.makeText(SupplierRegisterActivity.this, "Select Govenorate and City", Toast.LENGTH_SHORT).show();
             return;
         }
 
-       /* if (chosenType == null ) {
+        if (chosenType == null ) {
             Toast.makeText(SupplierRegisterActivity.this, "Select Type ", Toast.LENGTH_SHORT).show();
             return;
-        }*/
-
+        }
 
         supplier.setName(name.getText().toString());
         supplier.setPhone(phone.getText().toString());
