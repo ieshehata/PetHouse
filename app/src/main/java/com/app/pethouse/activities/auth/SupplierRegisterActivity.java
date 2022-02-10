@@ -88,26 +88,21 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
     @NotEmpty
     @DecimalMin(0.1)
     TextInputEditText price;
-
     private static final int PICK_IMAGE = 55;
     private boolean isEditing = false;
     private UserModel supplier = new UserModel();
-
     private LinearLayout governorateLayout, cityLayout, typeLayout;
     private AutoCompleteTextView governorate, city ,type;
     private ArrayList<String> governoratesNames = new ArrayList<>();
     private ArrayList<String> citiesNames = new ArrayList<>();
     private ArrayList<String> typesNames = new ArrayList<>();
-
     private ArrayList<CityModel> cities = new ArrayList<>();
     private TypeModel chosenType;
-
     private GovernorateModel chosenGovernorate;
     private CityModel chosenCity;
     Uri imageUri;
     int gender = 1;  // 0->Female, 1->Male
     SimpleDateFormat sdf = new SimpleDateFormat(SharedData.formatDate, Locale.US);
-
     ImageView avatar;
     Button register, location;
     MaterialButton male, female;
@@ -119,7 +114,6 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_register);
         isEditing = getIntent().getBooleanExtra("isEditing", false);
-
         avatar = findViewById(R.id.avatar);
         name = findViewById(R.id.name);
         phone = findViewById(R.id.phone);
@@ -275,12 +269,9 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
             }
         });
 
-        city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(cities.size() > position)
-                    chosenCity = cities.get(position);
-            }
+        city.setOnItemClickListener((parent, view, position, id) -> {
+            if(cities.size() > position)
+                chosenCity = cities.get(position);
         });
 
         for(TypeModel typeModel: SharedData.allTypes) {
@@ -290,13 +281,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
         ArrayAdapter kindsAdapter = new ArrayAdapter<>(this, R.layout.list_item, typesNames);
         type.setAdapter(kindsAdapter);
 
-        type.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                chosenType = SharedData.allTypes.get(position);
-
-            }
-        });
+        type.setOnItemClickListener((parent, view, position, id) -> chosenType = SharedData.allTypes.get(position));
 
     }
 
@@ -364,20 +349,20 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
 
     @Override
     public void onValidationSucceeded() {
-        if(supplier.getLatitude() == null || supplier.getLongitude() == null) {
+      /*  if(supplier.getLatitude() == null || supplier.getLongitude() == null) {
             Toast.makeText(SupplierRegisterActivity.this, "place your location first!", Toast.LENGTH_SHORT).show();
             return;
-        }
+        }*/
 
         if (chosenGovernorate == null && chosenCity == null) {
             Toast.makeText(SupplierRegisterActivity.this, "Select Govenorate and City", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (chosenType == null ) {
+       /* if (chosenType == null ) {
             Toast.makeText(SupplierRegisterActivity.this, "Select Type ", Toast.LENGTH_SHORT).show();
             return;
-        }
+        }*/
 
 
         supplier.setName(name.getText().toString());

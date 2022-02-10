@@ -15,7 +15,6 @@ import com.app.pethouse.adapter.TypeAdapter;
 import com.app.pethouse.callback.TypeCallback;
 import com.app.pethouse.controller.TypeController;
 import com.app.pethouse.dialogs.DataDialog;
-import com.app.pethouse.dialogs.RateDialog;
 import com.app.pethouse.model.TypeModel;
 import com.app.pethouse.utils.LoadingHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -43,7 +42,7 @@ public class TypesActivity extends AppCompatActivity implements TypeAdapter.Type
 
         // perform click event on button
         add.setOnClickListener(v -> {
-            RateDialog dialog = new RateDialog(false);
+            DataDialog dialog = new DataDialog(false);
             dialog.show(getSupportFragmentManager(), "dialog");
         });
 

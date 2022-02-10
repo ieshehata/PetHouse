@@ -18,12 +18,18 @@ public class DataDialog extends AppCompatDialogFragment {
     private EditText name;
     private DataDialogListener listener;
     private String oldName = "";
+    boolean fromFragment;
+
 
     public DataDialog() {
     }
 
     public DataDialog(String old) {
         this.oldName = old;
+    }
+
+    public DataDialog(boolean fromFragment) {
+        this.fromFragment = fromFragment;
     }
 
     @Override
