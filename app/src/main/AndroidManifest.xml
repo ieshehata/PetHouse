@@ -39,38 +39,70 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="q">
-        <activity android:name=".activities.admin.TypesActivity"/>
+        <activity android:name=".activities.admin.TypesActivity"
+            android:label="Types" />
+
         <activity
             android:name=".activities.general.ImageActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.general.IncomingCallActivity" />
+        <activity android:name=".activities.general.IncomingCallActivity"
+            android:label="call" />
+
         <activity
             android:name=".activities.general.ChatActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.auth.SupplierRegisterActivity" />
-        <activity android:name=".activities.general.RateActivity" />
-        <activity android:name=".activities.owener.PayActivity" />
-        <activity android:name=".activities.supplier.SupplierNavigationActivity" />
-        <activity android:name=".activities.general.SuppliersCalenderActivity" />
-        <activity android:name=".activities.supplier.PlacePickerActivity" />
-        <activity android:name=".activities.supplier.RequestsActivity" />
-        <activity android:name=".activities.auth.RegisterActivity" />
-        <activity android:name=".activities.general.SuppliersDetailsActivity" />
-        <activity android:name=".activities.admin.OwenersActivity" />
+            android:label="Chat"
+
+        android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.auth.SupplierRegisterActivity"
+        android:label="Register" />
+
+        <activity android:name=".activities.general.RateActivity"
+        android:label="Rate" />
+
+        <activity android:name=".activities.owener.PayActivity"
+        android:label="Pay" />
+
+        <activity android:name=".activities.supplier.SupplierNavigationActivity"
+            android:label="Supplier Navigation" />
+
+
+        <activity android:name=".activities.general.SuppliersCalenderActivity"
+            android:label="Suppliers Calender" />
+
+        <activity android:name=".activities.supplier.PlacePickerActivity"
+        android:label="Place Picker" />
+
+        <activity android:name=".activities.supplier.RequestsActivity"
+            android:label="Requests" />
+
+        <activity android:name=".activities.auth.RegisterActivity"
+        android:label="Register" />
+
+        <activity android:name=".activities.general.SuppliersDetailsActivity"
+        android:label="Suppliers" />
+
+        <activity android:name=".activities.admin.OwenersActivity"
+            android:label="Oweners" />
+
         <activity
             android:name=".activities.admin.SuppliersActivity"
             android:label="Suppliers"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.admin.GovernoratesActivity"
-            android:theme="@style/AppTheme.NoActionBarBlack" />
+            android:label="Governorates"
+        android:theme="@style/AppTheme.NoActionBarBlack" />
         <activity android:name=".activities.auth.ResetPasswordActivity" />
-        <activity android:name=".activities.auth.OTPActivity" />
+        <activity android:name=".activities.auth.OTPActivity"
+            android:label="OTP" />
         <activity android:name=".activities.supplier.SupplierMainActivity" />
         <activity android:name=".activities.owener.OwenerMainActivity" />
         <activity android:name=".activities.admin.AdminMainActivity" />
-        <activity android:name=".activities.auth.ForgetPasswordActivity" />
-        <activity android:name=".activities.auth.LoginActivity" />
+        <activity android:name=".activities.auth.ForgetPasswordActivity"
+            android:label="Forget Password" />
+        <activity android:name=".activities.auth.LoginActivity"
+            android:label="Login" />
+
         <activity android:name=".activities.auth.UserTypeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
