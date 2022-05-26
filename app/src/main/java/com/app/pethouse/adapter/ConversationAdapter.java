@@ -2,6 +2,7 @@ package com.app.pethouse.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -9,12 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.pethouse.R;
+import com.app.pethouse.activities.general.ChatActivity;
+import com.app.pethouse.callback.ConversationCallback;
+import com.app.pethouse.controller.ConversationController;
 import com.app.pethouse.model.ConversationModel;
 import com.app.pethouse.model.UserHeaderModel;
 import com.app.pethouse.utils.SharedData;
@@ -24,45 +29,42 @@ import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapter.ViewHolder> {
-    private ArrayList<ConversationModel> mData = new ArrayList<>();
+public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapter.ViewHolder> {    private ArrayList<ConversationModel> mData = new ArrayList<>();
     private Context context;
-    private ConversationListener mConversationListener;
-    private SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy - hh:mm aa");
 
-
-
-    public ConversationAdapter(ArrayList<ConversationModel> data,ConversationListener conversationListener) {
-        this.mData = data;
-        this.mConversationListener = conversationListener;
+    public ConversationAdapter(ArrayList<ConversationModel> data) {
+        mData.clear();
+        this.mData.addAll(data);
     }
-
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.row_conversation, parent, false);
-        return new ViewHolder(view, mConversationListener);
+        return new ViewHolder(view);
     }
 
     @SuppressLint("UseCompatTextViewDrawableApis")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         UserHeaderModel other = new UserHeaderModel();
         for (UserHeaderModel participant : mData.get(position).getParticipants()) {
             if (!participant.getKey().equals(SharedData.currentUser.getKey()) && mData.get(position).getParticipants().size() == 2) {
                 other = participant;
             }
         }
+
         holder.title.setText(other.getName());
+
         if (!TextUtils.isEmpty(other.getProfileImage())) {
             holder.profileImage.setImageTintList(null);
             Picasso.get()
                     .load(other.getProfileImage())
                     .into(holder.profileImage);
         }else if(other.getKey().equals(SharedData.adminUser.getKey())) {
-            holder.profileImage.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimaryMidDark)));
+            holder.profileImage.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimaryVeryDark)));
             holder.profileImage.setBackgroundResource(R.drawable.gradient_back);
             holder.profileImage.setImageResource(R.drawable.ic_report_24);
 
@@ -84,7 +86,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
             holder.stateIcon.setVisibility(View.VISIBLE);
             if (mData.get(position).getLastMessageState() == 1) {
                 holder.stateIcon.setImageResource(R.drawable.ic_seen_24);
-                holder.stateIcon.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimaryMidDark)));
+                holder.stateIcon.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimary)));
             } else {
                 holder.stateIcon.setImageResource(R.drawable.ic_delivered_24);
                 holder.stateIcon.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorDarkGray)));
@@ -92,9 +94,6 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
         } else {
             holder.stateIcon.setVisibility(View.GONE);
         }
-
-
-
 
     }
 
@@ -116,31 +115,37 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         View view;
-        ImageView profileImage, stateIcon, delete;
+
+        ImageView profileImage, stateIcon;
         TextView title, lastMessage, date;
-        ConversationListener listener;
-        ViewHolder(View itemView, ConversationListener listener) {
+
+        ViewHolder(View itemView) {
             super(itemView);
             view = itemView.findViewById(R.id.view);
             profileImage = itemView.findViewById(R.id.profile_image);
             stateIcon = itemView.findViewById(R.id.state_icon);
             title = itemView.findViewById(R.id.title);
-            delete = itemView.findViewById(R.id.delete);
-
             lastMessage = itemView.findViewById(R.id.last_message);
             date = itemView.findViewById(R.id.date);
-            this.listener = listener;
-            delete.setOnClickListener(v -> listener.deleteItem(getAdapterPosition()));
 
             view.setOnClickListener(v -> {
-                listener.view(getAdapterPosition());
-            });        }
-    }
+                if (!mData.get(getAdapterPosition()).getLastMessageUserKey().equals(SharedData.currentUser.getKey())) {
+                    mData.get(getAdapterPosition()).setLastMessageState(1);
+                    new ConversationController().save(mData.get(getAdapterPosition()), new ConversationCallback() {
+                        @Override
+                        public void onSuccess(ArrayList<ConversationModel> conversations) {
+                        }
 
-    public interface ConversationListener {
-        void response(int position, boolean isBlocking);
-        void deleteItem(int position);
-        void view(int position);
-
+                        @Override
+                        public void onFail(String error) {
+                            Toast.makeText(context, error, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+                SharedData.currentConversation = mData.get(getAdapterPosition());
+                Intent postDetails = new Intent(context, ChatActivity.class);
+                context.startActivity(postDetails);
+            });
+        }
     }
 }

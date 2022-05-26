@@ -81,6 +81,11 @@ public class UserTypeActivity extends AppCompatActivity {
             Intent intent = new Intent(UserTypeActivity.this, LoginActivity.class);
             startActivity(intent);
         });
+
+        findViewById(R.id.about).setOnClickListener(v -> {
+            Intent intent = new Intent(UserTypeActivity.this, AboutUsActivity.class);
+            startActivity(intent);
+        });
     }
 
 }

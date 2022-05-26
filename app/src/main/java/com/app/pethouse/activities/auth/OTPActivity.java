@@ -63,7 +63,7 @@ public class OTPActivity extends AppCompatActivity {
         otp = findViewById(R.id.otp);
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
-            public void onVerificationCompleted(@org.jetbrains.annotations.NotNull PhoneAuthCredential credential) {
+            public void onVerificationCompleted(@NotNull PhoneAuthCredential credential) {
                 Log.d(TAG, "onVerificationCompleted:" + credential);
                 signInWithPhoneAuthCredential(credential);
             }
@@ -127,7 +127,7 @@ public class OTPActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         if(from == 1) { //from register
                             if(SharedData.userType == 2) { //supplier
-                                new UserController().newSupplier(SharedData.supplier, new UserCallback() {
+                                new UserController().newSupplier(SharedData.currentUser, new UserCallback() {
                                     @Override
                                     public void onSuccess(ArrayList<UserModel> suppliers) {
                                         if(suppliers.size() > 0) {
@@ -156,7 +156,7 @@ public class OTPActivity extends AppCompatActivity {
                                 });
 
                             }else if(SharedData.userType == 3) { //Owener
-                                new UserController().newOwner(SharedData.owner, new UserCallback() {
+                                new UserController().newOwner(SharedData.currentUser, new UserCallback() {
                                     @Override
                                     public void onSuccess(ArrayList<UserModel> oweners) {
                                         if(oweners.size() > 0) {
@@ -186,7 +186,7 @@ public class OTPActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(ArrayList<UserModel> suppliers) {
                                         if(suppliers.size() > 0) {
-                                            SharedData.supplier = suppliers.get(0);
+                                            SharedData.currentUser = suppliers.get(0);
                                             loadingHelper.dismissLoading();
                                             Intent intent = new Intent(OTPActivity.this, ResetPasswordActivity.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -206,7 +206,7 @@ public class OTPActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(ArrayList<UserModel> oweners) {
                                         if(oweners.size() > 0) {
-                                            SharedData.owner = oweners.get(0);
+                                            SharedData.currentUser = oweners.get(0);
                                             loadingHelper.dismissLoading();
                                             Intent intent = new Intent(OTPActivity.this, ResetPasswordActivity.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -226,7 +226,7 @@ public class OTPActivity extends AppCompatActivity {
 
                         }else if(from == 3) { //updating
                             if(SharedData.userType == 2) {
-                                new UserController().save(SharedData.supplier, new UserCallback() {
+                                new UserController().save(SharedData.currentUser, new UserCallback() {
                                     @Override
                                     public void onSuccess(ArrayList<UserModel> suppliers) {
                                         SharedPreferences.Editor editor = sharedPref.edit();
@@ -248,7 +248,7 @@ public class OTPActivity extends AppCompatActivity {
                                     }
                                 });
                             }else if(SharedData.userType == 3) {
-                                new UserController().save(SharedData.owner, new UserCallback() {
+                                new UserController().save(SharedData.currentUser, new UserCallback() {
                                     @Override
                                     public void onSuccess(ArrayList<UserModel> oweners) {
                                         SharedPreferences.Editor editor = sharedPref.edit();

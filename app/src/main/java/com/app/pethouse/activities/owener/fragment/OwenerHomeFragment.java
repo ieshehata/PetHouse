@@ -16,15 +16,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.pethouse.R;
+import com.app.pethouse.activities.general.ChatActivity;
 import com.app.pethouse.activities.general.SuppliersDetailsActivity;
 import com.app.pethouse.adapter.SuppliersAdapter;
 import com.app.pethouse.callback.CityCallback;
+import com.app.pethouse.callback.ConversationCallback;
 import com.app.pethouse.callback.GovernorateCallback;
 import com.app.pethouse.callback.UserCallback;
 import com.app.pethouse.controller.CityController;
+import com.app.pethouse.controller.ConversationController;
 import com.app.pethouse.controller.GovernorateController;
 import com.app.pethouse.controller.UserController;
 import com.app.pethouse.model.CityModel;
+import com.app.pethouse.model.ConversationModel;
 import com.app.pethouse.model.GovernorateModel;
 import com.app.pethouse.model.UserModel;
 import com.app.pethouse.utils.LoadingHelper;
@@ -114,7 +118,7 @@ public class OwenerHomeFragment extends Fragment implements SuppliersAdapter.Sup
                                 loadingHelper.dismissLoading();
                                 allUsers = new ArrayList<>();
                                 for(UserModel cargiver : users) {
-                                    if(cargiver.getUserType() == 2) {
+                                    if(cargiver.getUserType() == 2 && cargiver.getState() == 1 && cargiver.getActivated() == 1) {
                                         allUsers.add(cargiver);
                                     }
                                 }
@@ -147,9 +151,12 @@ public class OwenerHomeFragment extends Fragment implements SuppliersAdapter.Sup
         for(GovernorateModel governorate: governorates) {
             governoratesNames.add(governorate.getName());
         }
-        ArrayAdapter governoratesAdapter = new ArrayAdapter<>(getActivity(), R.layout.list_item, governoratesNames);
-        governorate.setAdapter(governoratesAdapter);
-        refreshList();
+        try {
+            ArrayAdapter governoratesAdapter = new ArrayAdapter<>(getActivity(), R.layout.list_item, governoratesNames);
+            governorate.setAdapter(governoratesAdapter);
+            refreshList();
+        } catch (Exception e) {}
+
     }
 
     private void refreshList() {
@@ -163,7 +170,7 @@ public class OwenerHomeFragment extends Fragment implements SuppliersAdapter.Sup
         } else {
             filteredUsers.addAll(allUsers);
         }
-        noList.setText("No caregivers found with this filter!");
+        noList.setText("No suppliers found with this filter!");
         if (filteredUsers.size() > 0) {
             recyclerView.setVisibility(View.VISIBLE);
             noList.setVisibility(View.GONE);
@@ -187,7 +194,7 @@ public class OwenerHomeFragment extends Fragment implements SuppliersAdapter.Sup
 
     @Override
     public void view(int position) {
-        SharedData.supplier = adapter.getData().get(position);
+        SharedData.stalkedUser = adapter.getData().get(position);
         Intent intent = new Intent(getActivity(), SuppliersDetailsActivity.class);
         startActivity(intent);
     }
@@ -195,5 +202,45 @@ public class OwenerHomeFragment extends Fragment implements SuppliersAdapter.Sup
     @Override
     public void deleteItem(int position) {
 
+    }
+
+    @Override
+    public void chat(int position) {
+        UserModel user = adapter.getData().get(position);
+        loadingHelper.showLoading("");
+        new ConversationController().getConversationsByTwoUsers(SharedData.currentUser.getKey(),
+                user.getKey(), new ConversationCallback() {
+                    @Override
+                    public void onSuccess(ArrayList<ConversationModel> conversations) {
+                        if (conversations.size() > 0) {
+                            loadingHelper.dismissLoading();
+                            SharedData.currentConversation = conversations.get(0);
+                            Intent intent = new Intent(getActivity(), ChatActivity.class);
+                            startActivity(intent);
+                        } else {
+                            new ConversationController().newConversation(user, new ConversationCallback() {
+                                @Override
+                                public void onSuccess(ArrayList<ConversationModel> conversations) {
+                                    loadingHelper.dismissLoading();
+                                    SharedData.currentConversation = conversations.get(0);
+                                    Intent intent = new Intent(getActivity(), ChatActivity.class);
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onFail(String error) {
+                                    loadingHelper.dismissLoading();
+                                    Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onFail(String error) {
+                        loadingHelper.dismissLoading();
+                        Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

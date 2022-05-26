@@ -11,65 +11,115 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp">
 
-        <Button
+        <LinearLayout
             android:id="@+id/system_data"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:padding="20dp"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/colorPrimaryMidDark"
-            android:textColor="@color/white"
-            android:text="Governorates &amp; Cities"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/back_round_rectangle"
+            android:backgroundTint="@color/colorPrimary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                android:text="Location Data"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorPrimaryVeryDark"/>
 
-        <Button
-            android:id="@+id/types_supplier"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_margin="20dp"
-            android:padding="20dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add governorates and cities, and you can edit them also. This data will be used through the app"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorDarkGray"/>
+        </LinearLayout>
 
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/colorPrimaryMidDark"
-            android:textColor="@color/white"
-            android:text="Type Supplier"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
-
-
-        <Button
+        <LinearLayout
             android:id="@+id/suppliers"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_margin="20dp"
-            android:padding="20dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:text="Suppliers"
-            android:backgroundTint="@color/colorPrimaryMidDark"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/back_round_rectangle"
+            android:backgroundTint="@color/colorPrimary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                android:text="Suppliers"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorPrimaryVeryDark"/>
 
-        <Button
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Control all suppliers in the app with block option and accept new suppliers"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorDarkGray"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/owners"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_margin="20dp"
-            android:padding="20dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:text="Owners"
-            android:backgroundTint="@color/colorPrimaryMidDark"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/back_round_rectangle"
+            android:backgroundTint="@color/colorPrimary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                android:text="Users"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorPrimaryVeryDark"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="List all users accounts and control access to the app by blocking or unblock owners"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorDarkGray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/chat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/back_round_rectangle"
+            android:backgroundTint="@color/colorPrimary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                android:text="Chat"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorPrimaryVeryDark"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manager can communicate through this chat with all owners and suppliers and answers their feedbacks"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorDarkGray"/>
+        </LinearLayout>
 
 
     </LinearLayout>

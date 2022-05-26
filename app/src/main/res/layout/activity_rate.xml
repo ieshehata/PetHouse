@@ -38,7 +38,6 @@
         app:backgroundTint="@color/colorPrimaryMidDark"
         app:fabSize="auto"
         app:maxImageSize="36dp"
-        android:visibility="gone"
         tools:layout_editor_absoluteX="339dp"
         tools:layout_editor_absoluteY="659dp" />
 

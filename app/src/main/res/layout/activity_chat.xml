@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".activities.general.ChatActivity">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -19,7 +20,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -29,7 +29,7 @@
                 android:layout_gravity="center_vertical"
                 android:adjustViewBounds="true"
                 android:background="@color/colorGray"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 app:shapeAppearanceOverlay="@style/circleImageView" />
 
             <TextView
@@ -43,28 +43,6 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
-            <ImageButton
-                android:id="@+id/ring"
-                style="@android:style/Widget.DeviceDefault.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minHeight="0dp"
-                android:minWidth="0dp"
-                android:src="@drawable/ic_call_24"
-                android:textColor="@color/white"
-                android:layout_gravity="center_vertical|end" />
-            <Button
-                android:id="@+id/block"
-                style="@android:style/Widget.DeviceDefault.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minHeight="0dp"
-                android:minWidth="0dp"
-                android:text="Block"
-                android:src="@drawable/ic_block_24"
-                android:textColor="@color/white"
-                android:layout_gravity="center_vertical|end" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -110,7 +88,7 @@
             android:backgroundTint="@color/colorTransparent"
             android:contentDescription="@string/todo"
             android:src="@drawable/ic_image_24"
-            app:tint="@color/colorDarkGray" />
+            android:tint="@color/colorDarkGray"/>
 
         <EditText
             android:id="@+id/message_et"
@@ -119,12 +97,13 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="@drawable/back_edit"
+            android:backgroundTint="@color/colorLightGray"
             android:hint="@string/type_your_message"
             android:inputType="textMultiLine|textCapSentences|textAutoComplete"
             android:maxLines="6"
             android:minHeight="40dp"
             android:padding="8dp"
-            android:textColor="@color/colorDarkGray"
+            android:textColor="@color/colorGray"
             android:textSize="16sp" />
 
         <ImageButton
@@ -135,7 +114,7 @@
             android:backgroundTint="@color/colorTransparent"
             android:contentDescription="@string/todo"
             android:src="@drawable/ic_send_24"
-            app:tint="@color/colorDark" />
+            android:tint="@color/colorPrimaryVeryDark" />
 
     </LinearLayout>
 

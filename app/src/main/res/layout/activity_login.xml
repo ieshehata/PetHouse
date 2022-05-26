@@ -53,6 +53,7 @@
                     android:importantForAutofill="no"
                     android:inputType="phone"
                     android:maxLines="1"
+                    android:text="+965"
                     android:textCursorDrawable="@color/colorPrimaryVeryDark" />
             </com.google.android.material.textfield.TextInputLayout>
 

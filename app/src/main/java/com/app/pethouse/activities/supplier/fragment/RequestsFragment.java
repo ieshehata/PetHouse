@@ -46,7 +46,7 @@ public class RequestsFragment extends Fragment implements RequestsAdapter.Reques
     private void getData() {
         loadingHelper.showLoading("");
         if(SharedData.userType == 2) {
-            new OrderCareController().getOrderBySupplier(SharedData.supplier.getKey(), new OrderCareCallback() {
+            new OrderCareController().getOrderBySupplier(SharedData.currentUser.getKey(), new OrderCareCallback() {
                 @Override
                 public void onSuccess(ArrayList<OrderCareModel> requests) {
                     loadingHelper.dismissLoading();
@@ -74,7 +74,7 @@ public class RequestsFragment extends Fragment implements RequestsAdapter.Reques
                 }
             });
         }else if(SharedData.userType == 3) {
-            new OrderCareController().getOrderByOwener(SharedData.owner.getKey(), new OrderCareCallback() {
+            new OrderCareController().getOrderByOwener(SharedData.currentUser.getKey(), new OrderCareCallback() {
                 @Override
                 public void onSuccess(ArrayList<OrderCareModel> requests) {
                     loadingHelper.dismissLoading();

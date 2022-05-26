@@ -7,7 +7,9 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -68,6 +70,8 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     LoadingHelper loadingHelper;
     private Validator validator;
     private static final int PICK_IMAGE = 55;
+    private SharedPreferences sharedPref;
+
     ImageView avatar;
     Uri imageUri;
     @Override
@@ -76,6 +80,8 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         setContentView(R.layout.activity_register);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Register");
         isEditing = getIntent().getExtras().getBoolean("isEditing", false);
+        sharedPref = this.getSharedPreferences(SharedData.PREF_KEY, Context.MODE_PRIVATE);
+
         avatar = findViewById(R.id.avatar);
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
@@ -107,15 +113,15 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
             Objects.requireNonNull(getSupportActionBar()).setTitle("User Profile");
             register.setText("Update");
             login.setVisibility(View.GONE);
-            assert SharedData.owner!= null;
-            user = SharedData.owner;
-            name.setText(SharedData.owner.getName());
-            phone.setText(SharedData.owner.getPhone());
-            password.setText(SharedData.owner.getPass());
-            email.setText(SharedData.owner.getEmail());
-            if (!TextUtils.isEmpty(SharedData.owner.getProfileImage())) {
+            assert SharedData.currentUser!= null;
+            user = SharedData.currentUser;
+            name.setText(SharedData.currentUser.getName());
+            phone.setText(SharedData.currentUser.getPhone());
+            password.setText(SharedData.currentUser.getPass());
+            email.setText(SharedData.currentUser.getEmail());
+            if (!TextUtils.isEmpty(SharedData.currentUser.getProfileImage())) {
                 Picasso.get()
-                        .load(SharedData.owner.getProfileImage())
+                        .load(SharedData.currentUser.getProfileImage())
                         .into(avatar);
             } else {
                 user = new UserModel();
@@ -173,11 +179,8 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
                 public void onSuccess(String text) {
                     loadingHelper.dismissLoading();
                     user.setProfileImage(text);
-                    SharedData.owner = user;
-                    Intent intent = new Intent(RegisterActivity.this, OTPActivity.class);
-                    intent.putExtra("from", 1);
-                    intent.putExtra("phone", user.getPhone());
-                    startActivity(intent);
+                    SharedData.currentUser = user;
+                    saveUser();
                 }
 
                 @Override
@@ -187,15 +190,37 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
                 }
             });
         }else if(isEditing) {
-            SharedData.owner = user;
-            Intent intent = new Intent(RegisterActivity.this, OTPActivity.class);
-            intent.putExtra("from", 3);
-            intent.putExtra("phone", user.getPhone());
-            startActivity(intent);
+            SharedData.currentUser = user;
+            saveUser();
         } else {
             Toast.makeText(RegisterActivity.this, "Pick your profile picture!", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    private void saveUser() {
+        new UserController().newOwner(SharedData.currentUser, new UserCallback() {
+            @Override
+            public void onSuccess(ArrayList<UserModel> oweners) {
+                if(oweners.size() > 0) {
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putBoolean(SharedData.IS_USER_SAVED, true);
+                    editor.putString(SharedData.PHONE, oweners.get(0).getPhone());
+                    editor.putString(SharedData.PASS, oweners.get(0).getPass());
+                    editor.putInt(SharedData.USER_TYPE, SharedData.userType);
+                    editor.apply();
+                    loadingHelper.dismissLoading();
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            }
+            @Override
+            public void onFail(String error) {
+                loadingHelper.dismissLoading();
+                Toast.makeText(RegisterActivity.this, error, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override

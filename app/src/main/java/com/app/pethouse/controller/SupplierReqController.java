@@ -148,6 +148,7 @@ public class SupplierReqController {
                         if(suppliers.size() > 0) {
                             UserModel caregiver = suppliers.get(0);
                             caregiver.setState(isAccepted ? 1 : -1);
+                            caregiver.setActivated(isAccepted ? 1 : -1);
                             new UserController().save(caregiver, new UserCallback() {
                                 @Override
                                 public void onSuccess(ArrayList<UserModel> suppliers) {

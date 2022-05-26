@@ -101,7 +101,7 @@ public class SupplierReqFragment extends Fragment implements SupplierReqAdapter.
 
     @Override
     public void view(int position) {
-        SharedData.supplier = adapter.getData().get(position).getSupplier();
+        SharedData.stalkedUser = adapter.getData().get(position).getSupplier();
         Intent intent = new Intent(getActivity(), SuppliersDetailsActivity.class);
         startActivity(intent);
     }

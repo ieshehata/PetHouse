@@ -8,21 +8,21 @@
     <fragment
         android:id="@+id/navigation_req"
         android:name="com.app.pethouse.activities.supplier.fragment.RequestsFragment"
-        android:label="requests"
+        android:label="Requests"
         tools:layout="@layout/fragment_list" />
 
 
     <fragment
         android:id="@+id/navigation_calender"
         android:name="com.app.pethouse.activities.general.fragment.SupplierCalenderFragment"
-        android:label="@string/calender"
+        android:label="Calender"
         tools:layout="@layout/fragment_supplier_calender" />
 
     <fragment
-        android:id="@+id/navigation_supplier_chat"
-        android:name="com.app.pethouse.activities.supplier.fragment.SupplierChatFragment"
-        android:label="@string/calender"
-        tools:layout="@layout/fragment_list" />
+        android:id="@+id/navigation_chat"
+        android:name="com.app.pethouse.activities.general.fragment.ChatFragment"
+        android:label="Conversations"
+        tools:layout="@layout/fragment_chat" />
 
 
 </navigation>

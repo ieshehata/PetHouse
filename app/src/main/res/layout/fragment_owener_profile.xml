@@ -228,7 +228,7 @@
                     android:layout_marginTop="24dp"
                     android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="@string/register"
-                    android:textColor="@color/colorPrimaryVeryDark"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
 

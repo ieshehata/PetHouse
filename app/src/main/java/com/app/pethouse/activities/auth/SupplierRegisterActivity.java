@@ -2,7 +2,9 @@ package com.app.pethouse.activities.auth;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -28,11 +30,14 @@ import androidx.core.content.ContextCompat;
 import com.app.pethouse.R;
 import com.app.pethouse.activities.supplier.PlacePickerActivity;
 import com.app.pethouse.callback.StringCallback;
+import com.app.pethouse.callback.SupplierReqCallback;
 import com.app.pethouse.callback.UserCallback;
+import com.app.pethouse.controller.SupplierReqController;
 import com.app.pethouse.controller.UploadController;
 import com.app.pethouse.controller.UserController;
 import com.app.pethouse.model.CityModel;
 import com.app.pethouse.model.GovernorateModel;
+import com.app.pethouse.model.SuppliersReqModel;
 import com.app.pethouse.model.TypeModel;
 import com.app.pethouse.model.UserModel;
 import com.app.pethouse.utils.LoadingHelper;
@@ -81,25 +86,21 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
 
     @NotNull
     @NotEmpty
-    @Length(min = 3)
-    TextInputEditText nationality;
-
-    @NotNull
-    @NotEmpty
     @DecimalMin(0.1)
     TextInputEditText price;
     private static final int PICK_IMAGE = 55;
     private boolean isEditing = false;
     private UserModel supplier = new UserModel();
-    private LinearLayout governorateLayout, cityLayout, typeLayout;
+    private LinearLayout governorateLayout, cityLayout;
     private AutoCompleteTextView governorate, city ,type;
     private ArrayList<String> governoratesNames = new ArrayList<>();
     private ArrayList<String> citiesNames = new ArrayList<>();
-    private ArrayList<String> typesNames = new ArrayList<>();
     private ArrayList<CityModel> cities = new ArrayList<>();
     private TypeModel chosenType;
     private GovernorateModel chosenGovernorate;
     private CityModel chosenCity;
+    private SharedPreferences sharedPref;
+
     Uri imageUri;
     int gender = 1;  // 0->Female, 1->Male
     SimpleDateFormat sdf = new SimpleDateFormat(SharedData.formatDate, Locale.US);
@@ -114,6 +115,8 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_register);
         isEditing = getIntent().getBooleanExtra("isEditing", false);
+        sharedPref = this.getSharedPreferences(SharedData.PREF_KEY, Context.MODE_PRIVATE);
+
         avatar = findViewById(R.id.avatar);
         name = findViewById(R.id.name);
         phone = findViewById(R.id.phone);
@@ -121,9 +124,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
         password = findViewById(R.id.password);
         description = findViewById(R.id.description);
         price = findViewById(R.id.price);
-        nationality = findViewById(R.id.nationality);
         governorateLayout = findViewById(R.id.governorate_layout);
-        typeLayout = findViewById(R.id.type_layout);
         cityLayout = findViewById(R.id.city_layout);
         type = findViewById(R.id.type);
         governorate = findViewById(R.id.governorate);
@@ -169,8 +170,8 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
 
         location.setOnClickListener(v -> {
             Intent intent = new Intent(SupplierRegisterActivity.this, PlacePickerActivity.class);
-            SharedData.latitude = SharedData.supplier.getLatitude() == null ? 29.282478 : SharedData.supplier.getLatitude();
-            SharedData.longitude = SharedData.supplier.getLongitude() == null ? 47.912792 : SharedData.supplier.getLongitude();
+            SharedData.latitude = SharedData.currentUser.getLatitude() == null ? 29.282478 : SharedData.currentUser.getLatitude();
+            SharedData.longitude = SharedData.currentUser.getLongitude() == null ? 47.912792 : SharedData.currentUser.getLongitude();
             startActivityForResult(intent,2);
         });
 
@@ -186,46 +187,45 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
     private void setData() {
         setAdapters();
         if (isEditing) {
-            supplier = SharedData.supplier;
+            supplier = SharedData.currentUser;
 
             Objects.requireNonNull(getSupportActionBar()).setTitle("Supplier Profile");
             register.setText("Update");
-            name.setText(SharedData.supplier.getName());
-            phone.setText(SharedData.supplier.getPhone());
-            email.setText(SharedData.supplier.getEmail());
-            password.setText(SharedData.supplier.getPass());
-            description.setText(SharedData.supplier.getDescription());
-            price.setText(String.format("%.3f",SharedData.supplier.getPrice()));
-            nationality.setText(SharedData.supplier.getNationality());
+            name.setText(SharedData.currentUser.getName());
+            phone.setText(SharedData.currentUser.getPhone());
+            email.setText(SharedData.currentUser.getEmail());
+            password.setText(SharedData.currentUser.getPass());
+            description.setText(SharedData.currentUser.getDescription());
+            price.setText(String.format("%.3f",SharedData.currentUser.getPrice()));
 
-            if(!TextUtils.isEmpty(SharedData.supplier.getProfileImage())) {
+            if(!TextUtils.isEmpty(SharedData.currentUser.getProfileImage())) {
                 Picasso.get()
-                        .load(SharedData.supplier.getProfileImage())
+                        .load(SharedData.currentUser.getProfileImage())
                         .into(avatar);
             }
 
-            if(SharedData.supplier.getType().getKey() != null) {
+            if(SharedData.currentUser.getType().getKey() != null) {
                 for(int i = 0; i < SharedData.allTypes.size(); i++) {
-                    if(SharedData.allTypes.get(i).getName().equals(SharedData.supplier.getType().getName())) {
+                    if(SharedData.allTypes.get(i).getName().equals(SharedData.currentUser.getType().getName())) {
                         type.getOnItemClickListener().onItemClick(null, null, i, i);
                         type.setText(SharedData.allTypes.get(i).getName());
                     }
                 }
             }
 
-            if(SharedData.supplier.getGovernorate().getKey() != null) {
+            if(SharedData.currentUser.getGovernorate().getKey() != null) {
                 for(int i = 0; i < SharedData.allGovernorates.size(); i++) {
-                    if(SharedData.allGovernorates.get(i).getName().equals(SharedData.supplier.getGovernorate().getName())) {
+                    if(SharedData.allGovernorates.get(i).getName().equals(SharedData.currentUser.getGovernorate().getName())) {
                         governorate.getOnItemClickListener().onItemClick(null, null, i, i);
                         governorate.setText(SharedData.allGovernorates.get(i).getName());
                     }
                 }
             }
 
-            if(SharedData.supplier.getCity().getKey() != null) {
+            if(SharedData.currentUser.getCity().getKey() != null) {
                 city.setVisibility(VISIBLE);
                 for(int i = 0; i < SharedData.allCities.size(); i++) {
-                    if(SharedData.allCities.get(i).getName().equals(SharedData.supplier.getCity().getName())) {
+                    if(SharedData.allCities.get(i).getName().equals(SharedData.currentUser.getCity().getName())) {
                         city.getOnItemClickListener().onItemClick(null, null, i, i);
                         city.setText(SharedData.allCities.get(i).getName());
                     }
@@ -234,7 +234,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
 
             genderButtonsRefresh();
         } else {
-            SharedData.supplier = new UserModel();
+            SharedData.currentUser = new UserModel();
         }
     }
 
@@ -274,6 +274,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
                 chosenCity = cities.get(position);
         });
 
+        /*
         for(TypeModel typeModel: SharedData.allTypes) {
             typesNames.add(typeModel.getName());
         }
@@ -282,7 +283,7 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
         type.setAdapter(kindsAdapter);
 
         type.setOnItemClickListener((parent, view, position, id) -> chosenType = SharedData.allTypes.get(position));
-
+         */
     }
 
     private void genderButtonsRefresh() {
@@ -359,10 +360,11 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
             return;
         }
 
+        /*
         if (chosenType == null ) {
             Toast.makeText(SupplierRegisterActivity.this, "Select Type ", Toast.LENGTH_SHORT).show();
             return;
-        }
+        }*/
 
         supplier.setName(name.getText().toString());
         supplier.setPhone(phone.getText().toString());
@@ -371,13 +373,18 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
         supplier.setDescription(description.getText().toString());
         supplier.setPrice(Double.parseDouble(price.getText().toString()));
         supplier.setGender(gender);
-        supplier.setNationality(nationality.getText().toString());
+        supplier.setNationality("");
         supplier.setType(chosenType);
         supplier.setGovernorate(chosenGovernorate);
         supplier.setCity(chosenCity);
         supplier.setUserType(2);
+        supplier.setActivated(1);
+        supplier.setState(0);
 
-        SharedData.supplier = supplier;
+        if(!isEditing)
+            supplier.setSupplierType(SharedData.supplierType);
+
+        SharedData.currentUser = supplier;
 
         if (imageUri != null) {
             loadingHelper.showLoading("");
@@ -386,12 +393,8 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
                 public void onSuccess(String text) {
                     loadingHelper.dismissLoading();
                     supplier.setProfileImage(text);
-                    SharedData.supplier = supplier;
-
-                    Intent intent = new Intent(SupplierRegisterActivity.this, OTPActivity.class);
-                    intent.putExtra("from", 1);
-                    intent.putExtra("phone", supplier.getPhone());
-                    startActivity(intent);
+                    SharedData.currentUser = supplier;
+                    saveUser();
                 }
 
                 @Override
@@ -418,6 +421,36 @@ public class SupplierRegisterActivity extends AppCompatActivity implements Valid
         } else {
             Toast.makeText(SupplierRegisterActivity.this, "Pick your profile picture!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void saveUser() {
+        new UserController().newSupplier(SharedData.currentUser, new UserCallback() {
+            @Override
+            public void onSuccess(ArrayList<UserModel> suppliers) {
+                if(suppliers.size() > 0) {
+                    new SupplierReqController().newRequest(suppliers.get(0), new SupplierReqCallback() {
+                        @Override
+                        public void onSuccess(ArrayList<SuppliersReqModel> requests) {
+                            loadingHelper.dismissLoading();
+                            Toast.makeText(SupplierRegisterActivity.this, "Registered, wait admin review!", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(SupplierRegisterActivity.this, LoginActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                        @Override
+                        public void onFail(String error) {
+                            loadingHelper.dismissLoading();
+                            Toast.makeText(SupplierRegisterActivity.this, error, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            }
+            @Override
+            public void onFail(String error) {
+                loadingHelper.dismissLoading();
+                Toast.makeText(SupplierRegisterActivity.this, error, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override

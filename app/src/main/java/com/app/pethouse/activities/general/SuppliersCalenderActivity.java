@@ -80,7 +80,7 @@ public class SuppliersCalenderActivity extends AppCompatActivity {
                     });
                 } else if(SharedData.userType == 3) {
                     newOrder.setState(0);
-                    newOrder.setOwener(SharedData.owner);
+                    newOrder.setOwener(SharedData.currentUser);
                     SharedData.currentOrder = newOrder;
                     ChoosedDays = new ArrayList<>();
                     Intent intent = new Intent(SuppliersCalenderActivity.this, PayActivity.class);
@@ -99,14 +99,18 @@ public class SuppliersCalenderActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        supplier = SharedData.supplier;
+        supplier = SharedData.stalkedUser;
         new OrderCareController().getOrders(new OrderCareCallback() {
             @Override
             public void onSuccess(ArrayList<OrderCareModel> orderCares) {
                 allOrders = new ArrayList<>();
                 for(OrderCareModel order : orderCares) {
                     if(order.getSupplier().getKey().equals(supplier.getKey()))
-                        allOrders.add(order);
+                        if((SharedData.userType == 3 && order.getOwener() != null && order.getOwener().getKey().equals(SharedData.currentUser.getKey())) || order.getState() == 2) {
+                            allOrders.add(order);
+                        }else if(SharedData.userType != 3) {
+                            allOrders.add(order);
+                        }
                 }
                 setDataOnCalendar();
             }

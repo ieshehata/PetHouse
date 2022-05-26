@@ -43,14 +43,13 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class ChatActivity extends AppCompatActivity {
     private static final int PICK_IMAGE = 25;
     private final ChatController controller = new ChatController();
     private ImageView profileImage;
     private TextView title, noMessages;
     private RecyclerView recyclerView;
-    private Button block;
-    private ImageButton ring;
     private ImageButton imageMessage, sendMessage;
     private EditText messageET;
     private LoadingHelper loadingHelper;
@@ -66,8 +65,6 @@ public class ChatActivity extends AppCompatActivity {
 
         profileImage = findViewById(R.id.profile_image);
         title = findViewById(R.id.title);
-        block = findViewById(R.id.block);
-        ring = findViewById(R.id.ring);
         noMessages = findViewById(R.id.no_messages);
         recyclerView = findViewById(R.id.recycler_view);
         imageMessage = findViewById(R.id.image_message);
@@ -135,7 +132,7 @@ public class ChatActivity extends AppCompatActivity {
                         .load(other.getProfileImage())
                         .into(profileImage);
             }else if(other.getKey().equals(SharedData.adminUser.getKey())) {
-                profileImage.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryMidDark)));
+                profileImage.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryVeryDark)));
                 profileImage.setBackgroundResource(R.drawable.gradient_back);
                 profileImage.setImageResource(R.drawable.ic_report_24);
 
@@ -144,9 +141,6 @@ public class ChatActivity extends AppCompatActivity {
             onBackPressed();
         }
 
-        if(SharedData.currentConversation.getBlockedBy().equals(SharedData.currentUser.getKey())) {
-            block.setText("Unblock");
-        }
 
         if (currentChat.getMessages().size() > 0) {
             Collections.sort(currentChat.getMessages());
@@ -213,70 +207,25 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        block.setOnClickListener(v -> {
-            if(TextUtils.isEmpty(SharedData.currentConversation.getBlockedBy())) {
-                SharedData.currentConversation.setBlockedBy(SharedData.currentUser.getKey());
-            }else if(SharedData.currentConversation.getBlockedBy().equals(SharedData.currentUser.getKey())) {
-                SharedData.currentConversation.setBlockedBy("");
-            }
-
-            new ConversationController().save(SharedData.currentConversation, new ConversationCallback() {
-                @Override
-                public void onSuccess(ArrayList<ConversationModel> conversations) {
-                    getData();
-                }
-
-                @Override
-                public void onFail(String error) {
-                    Toast.makeText(ChatActivity.this, error, Toast.LENGTH_LONG).show();
-                }
-            });
-        });
-
-        ring.setOnClickListener(v -> {
-            new ChatController().newRing(SharedData.currentConversation, currentChat, other, new ChatCallback() {
-                @Override
-                public void onSuccess(ArrayList<ChatModel> chats) {}
-
-                @Override
-                public void onFail(String error) {}
-            });
-        });
-
         imageMessage.setOnClickListener(v -> {
             if (checkReadPermission()) {
                 pickImage();
             }
         });
 
+        /*
+
         profileImage.setOnClickListener(v -> {
             SharedData.stalkedUserHeader = other;
-            if(SharedData.userType == 3) { //Owener
-                Intent intent = new Intent(ChatActivity.this, RegisterActivity.class);
-                intent.putExtra("isEditing", false);
-                startActivity(intent);
-            }else if(SharedData.userType == 2) { //Supplier
-                Intent intent = new Intent(ChatActivity.this, SupplierRegisterActivity.class);
-                intent.putExtra("isEditing", false);
-                startActivity(intent);
-            }
-
-
+            Intent intent = new Intent(ChatActivity.this, UserProfileActivity.class);
+            startActivity(intent);
         });
 
         title.setOnClickListener(v -> {
             SharedData.stalkedUserHeader = other;
-
-            if(SharedData.userType == 3) { //Owener
-                Intent intent = new Intent(ChatActivity.this, RegisterActivity.class);
-                intent.putExtra("isEditing", false);
-                startActivity(intent);
-            }else if(SharedData.userType == 2) { //Supplier
-                Intent intent = new Intent(ChatActivity.this, SupplierRegisterActivity.class);
-                intent.putExtra("isEditing", false);
-                startActivity(intent);
-            }
-        });
+            Intent intent = new Intent(ChatActivity.this, UserProfileActivity.class);
+            startActivity(intent);
+        });*/
     }
 
     private void disableSend() {

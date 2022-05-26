@@ -88,7 +88,7 @@ public class SupplierCalenderFragment extends Fragment {
                     });
                 } else if (SharedData.userType == 3) {
                     newOrder.setState(0);
-                    newOrder.setOwener(SharedData.owner);
+                    newOrder.setOwener(SharedData.currentUser);
                     SharedData.currentOrder = newOrder;
                     Intent intent = new Intent(getActivity(), PayActivity.class);
                     startActivity(intent);
@@ -101,7 +101,9 @@ public class SupplierCalenderFragment extends Fragment {
     }
 
     private void getData() {
-        supplier = SharedData.supplier;
+        supplier = SharedData.stalkedUser;
+        if(SharedData.userType == 2)
+            supplier = SharedData.currentUser;
         new OrderCareController().getOrders(new OrderCareCallback() {
             @Override
             public void onSuccess(ArrayList<OrderCareModel> orderCares) {

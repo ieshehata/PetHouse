@@ -47,7 +47,7 @@ public class OrderCareModel {
         return supplier;
     }
 
-    public void setSupplier(UserModel caregiver) {
+    public void setSupplier(UserModel supplier) {
         this.supplier = supplier;
     }
 

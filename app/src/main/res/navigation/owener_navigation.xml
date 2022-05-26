@@ -7,12 +7,6 @@
 
 
     <fragment
-        android:id="@+id/navigation_reg"
-        android:name="com.app.pethouse.activities.owener.fragment.OwenerProfileFragment"
-        android:label="Profile"
-        tools:layout="@layout/fragment_owener_profile" />
-
-    <fragment
         android:id="@id/navigation_home"
         android:name="com.app.pethouse.activities.owener.fragment.OwenerHomeFragment"
         android:label="Home"
@@ -21,15 +15,20 @@
     <fragment
         android:id="@+id/navigation_req"
         android:name="com.app.pethouse.activities.supplier.fragment.RequestsFragment"
-        android:label="requests"
+        android:label="Requests"
         tools:layout="@layout/fragment_list" />
 
     <fragment
-        android:id="@+id/navigation_owener_chat"
-        android:name="com.app.pethouse.activities.owener.fragment.OwenerChatFragment"
-        android:label="Home"
-        tools:layout="@layout/fragment_list" />
+        android:id="@+id/navigation_chat"
+        android:name="com.app.pethouse.activities.general.fragment.ChatFragment"
+        android:label="Conversations"
+        tools:layout="@layout/fragment_chat" />
 
 
+    <fragment
+        android:id="@+id/navigation_reg"
+        android:name="com.app.pethouse.activities.owener.fragment.OwenerProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_owener_profile" />
 
 </navigation>

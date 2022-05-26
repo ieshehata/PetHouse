@@ -69,6 +69,10 @@ public class OwenerChatFragment extends Fragment  implements ConversationAdapter
                     }
                 }
 
+                if(generalChats.size() == 0 || groupChats.size() == 0 || privateChats.size() == 0) {
+
+                }
+
                 if(adapter == null || adapter.getData().size() == 0) {
                     if(listFilter == 0) {
                         adapter = new ConversationAdapter(generalChats, OwenerChatFragment.this);
@@ -88,6 +92,8 @@ public class OwenerChatFragment extends Fragment  implements ConversationAdapter
                         adapter.updateData(privateChats);
                     }
                 }
+
+
             }
 
             @Override

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.app.pethouse.R;
 import com.app.pethouse.activities.admin.AdminMainActivity;
+import com.app.pethouse.activities.general.SupplierTypeActivity;
 import com.app.pethouse.activities.supplier.SupplierMainActivity;
 import com.app.pethouse.activities.owener.OwenerMainActivity;
 import com.app.pethouse.callback.UserCallback;
@@ -65,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
             phone.setInputType(InputType.TYPE_CLASS_TEXT);
             forgetPassword.setVisibility(View.GONE);
             register.setVisibility(View.GONE);
+            phone.setText("");
         }else {
             if(isSaved && SharedData.userType == savedType) {
                 loginPhone = sharedPref.getString(SharedData.PHONE, "");
@@ -90,8 +92,8 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
                 intent.putExtra("isEditing", false);
                 startActivity(intent);
             }else if(SharedData.userType == 2) { //Supplier
-                Intent intent = new Intent(LoginActivity.this, SupplierRegisterActivity.class);
-                intent.putExtra("isEditing", false);
+                Intent intent = new Intent(LoginActivity.this, SupplierTypeActivity.class);
+                intent.putExtra("from", 0);
                 startActivity(intent);
             }
         });
@@ -102,7 +104,8 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
         UserModel owener = new UserModel(loginPhone, loginPassword,3);
 
         if(SharedData.userType == 1) {
-            if(loginPhone.equals("admin") && loginPassword.equals("123456")) {
+            if(loginPhone.equals("heba") && loginPassword.equals("123456")) {
+                SharedData.currentUser = SharedData.adminUser;
                 Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
@@ -117,7 +120,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
                     if(oweners.size() > 0) {
                         loadingHelper.dismissLoading();
                         if(oweners.get(0).getState() == 1) {
-                            SharedData.owner = oweners.get(0);
+                            SharedData.currentUser = oweners.get(0);
                             SharedPreferences.Editor editor = sharedPref.edit();
                             editor.putBoolean(SharedData.IS_USER_SAVED, true);
                             editor.putString(SharedData.PHONE, loginPhone);
@@ -149,7 +152,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
                     if(suppliers.size() > 0) {
                         loadingHelper.dismissLoading();
                         if(suppliers.get(0).getState() == 1) {
-                            SharedData.supplier = suppliers.get(0);
+                            SharedData.currentUser = suppliers.get(0);
                             SharedPreferences.Editor editor = sharedPref.edit();
                             editor.putBoolean(SharedData.IS_USER_SAVED, true);
                             editor.putString(SharedData.PHONE, loginPhone);
@@ -178,8 +181,8 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
     }
     @Override
     public void onValidationSucceeded() {
-        loginPhone = phone.getText().toString();
-        loginPassword = password.getText().toString();
+        loginPhone = phone.getText().toString().trim();
+        loginPassword = password.getText().toString().trim();
         login();
     }
 

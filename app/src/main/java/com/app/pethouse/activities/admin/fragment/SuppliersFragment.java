@@ -14,10 +14,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.pethouse.R;
+import com.app.pethouse.activities.general.ChatActivity;
 import com.app.pethouse.activities.general.SuppliersDetailsActivity;
 import com.app.pethouse.adapter.SuppliersAdapter;
+import com.app.pethouse.callback.ConversationCallback;
 import com.app.pethouse.callback.UserCallback;
+import com.app.pethouse.controller.ConversationController;
 import com.app.pethouse.controller.UserController;
+import com.app.pethouse.model.ConversationModel;
 import com.app.pethouse.model.UserModel;
 import com.app.pethouse.utils.LoadingHelper;
 import com.app.pethouse.utils.SharedData;
@@ -177,7 +181,7 @@ public class SuppliersFragment extends Fragment implements SuppliersAdapter.Supp
 
     @Override
     public void view(int position) {
-        SharedData.supplier = adapter.getData().get(position);
+        SharedData.stalkedUser = adapter.getData().get(position);
         Intent intent = new Intent(getActivity(), SuppliersDetailsActivity.class);
         startActivity(intent);
     }
@@ -198,5 +202,45 @@ public class SuppliersFragment extends Fragment implements SuppliersAdapter.Supp
                 Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void chat(int position) {
+        UserModel user = adapter.getData().get(position);
+        loadingHelper.showLoading("");
+        new ConversationController().getConversationsByTwoUsers(SharedData.currentUser.getKey(),
+                user.getKey(), new ConversationCallback() {
+                    @Override
+                    public void onSuccess(ArrayList<ConversationModel> conversations) {
+                        if (conversations.size() > 0) {
+                            loadingHelper.dismissLoading();
+                            SharedData.currentConversation = conversations.get(0);
+                            Intent intent = new Intent(getActivity(), ChatActivity.class);
+                            startActivity(intent);
+                        } else {
+                            new ConversationController().newConversation(user, new ConversationCallback() {
+                                @Override
+                                public void onSuccess(ArrayList<ConversationModel> conversations) {
+                                    loadingHelper.dismissLoading();
+                                    SharedData.currentConversation = conversations.get(0);
+                                    Intent intent = new Intent(getActivity(), ChatActivity.class);
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onFail(String error) {
+                                    loadingHelper.dismissLoading();
+                                    Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onFail(String error) {
+                        loadingHelper.dismissLoading();
+                        Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

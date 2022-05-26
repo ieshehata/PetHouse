@@ -2,11 +2,13 @@ package com.app.pethouse.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.pethouse.R;
 import com.app.pethouse.model.UserModel;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -48,6 +51,15 @@ public class OwenerAdapter extends RecyclerView.Adapter<OwenerAdapter.ViewHolder
         holder.owenerName.setText(mData.get(position).getName());
         holder.email.setText(mData.get(position).getEmail());
         holder.phone.setText(mData.get(position).getPhone());
+
+        if (!TextUtils.isEmpty(mData.get(position).getProfileImage())) {
+            holder.avatar.setVisibility(View.VISIBLE);
+            Picasso.get()
+                    .load(mData.get(position).getProfileImage())
+                    .into(holder.avatar);
+        } else {
+            holder.avatar.setVisibility(View.GONE);
+        }
 
         if(mData.get(position).getState() == 1) { //Active
             holder.blockButton.setVisibility(View.VISIBLE);
@@ -87,8 +99,9 @@ public class OwenerAdapter extends RecyclerView.Adapter<OwenerAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         View view;
+        ImageView avatar;
         TextView owenerName ,email, phone;
-        Button unblockButton, blockButton;
+        Button unblockButton, blockButton, chat;
         ImageButton delete;
         LinearLayout actionButtons;
 
@@ -96,15 +109,21 @@ public class OwenerAdapter extends RecyclerView.Adapter<OwenerAdapter.ViewHolder
         ViewHolder(View itemView, OwenerListener listener) {
             super(itemView);
             view = itemView.findViewById(R.id.view);
-            owenerName = itemView.findViewById(R.id.owener_name);
+            owenerName = itemView.findViewById(R.id.name);
+            avatar = itemView.findViewById(R.id.avatar);
             email = itemView.findViewById(R.id.email);
             phone = itemView.findViewById(R.id.phone);
             delete = itemView.findViewById(R.id.delete);
+            chat = itemView.findViewById(R.id.chat);
 
             unblockButton = itemView.findViewById(R.id.unblock);
             blockButton = itemView.findViewById(R.id.block);
 
             this.listener = listener;
+
+            chat.setOnClickListener(v -> {
+                listener.chat(getAdapterPosition());
+            });
 
             unblockButton.setOnClickListener(v -> {
                 listener.response(getAdapterPosition(), false);
@@ -130,7 +149,7 @@ public class OwenerAdapter extends RecyclerView.Adapter<OwenerAdapter.ViewHolder
         void response(int position, boolean isBlocking);
         void deleteItem(int position);
         void view(int position);
-
+        void chat(int position);
 
     }
 }

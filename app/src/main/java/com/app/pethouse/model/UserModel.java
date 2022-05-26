@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import java.util.Date;
 
 public class UserModel {
-    private String key;
+    private String key = "";
     private String name = "";
     private String email;
     private String phone;
@@ -28,7 +28,7 @@ public class UserModel {
     private int activated; // -1->Blocked, 0->waiting, 1->Active
     private int userType = 0;
     private Date createdAt;
-
+    private int supplierType;
     private boolean isPublic = true;
 
     private String fcmToken = "";
@@ -84,6 +84,14 @@ public class UserModel {
 
     public boolean validate() {
         return  (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(pass) && !TextUtils.isEmpty(phone) );
+    }
+
+    public int getSupplierType() {
+        return supplierType;
+    }
+
+    public void setSupplierType(int supplierType) {
+        this.supplierType = supplierType;
     }
 
     public String getKey() {

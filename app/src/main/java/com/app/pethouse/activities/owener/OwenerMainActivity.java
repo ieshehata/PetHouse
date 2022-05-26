@@ -26,7 +26,7 @@ public class OwenerMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_owener_main);
         sharedPref = this.getSharedPreferences(SharedData.PREF_KEY, Context.MODE_PRIVATE);
-        setTitle(SharedData.owner.getName());
+        setTitle(SharedData.currentUser.getName());
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
@@ -50,7 +50,7 @@ public class OwenerMainActivity extends AppCompatActivity {
                 editor.putString(SharedData.PASS, "");
                 editor.putInt(SharedData.USER_TYPE, 0);
                 editor.apply();
-                SharedData.owner = null;
+                SharedData.currentUser = null;
                 Intent i = new Intent(this, UserTypeActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);

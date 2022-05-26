@@ -7,64 +7,26 @@
     android:orientation="vertical"
     android:id="@+id/root"
     android:theme="@style/Theme.MaterialComponents.Light"
-    tools:context=".activities.owener.fragment.OwenerChatFragment">
+    tools:context=".activities.general.fragment.ChatFragment">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/no_list"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="No conversations yet"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
 
-        <Button
-            android:id="@+id/all_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryMidDark"
-            android:padding="4dp"
-            android:text="General"
-            android:textColor="@color/colorPrimaryVeryDark"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/group_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:background="@color/colorLightGray"
-            android:padding="4dp"
-            android:text="Group"
-            android:textColor="@color/colorPrimaryVeryDark"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/private_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:background="@color/colorLightGray"
-            android:padding="4dp"
-            android:text="Private"
-            android:textColor="@color/colorPrimaryVeryDark"
-            android:textSize="12sp" />
-
-    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"/>
-
+        android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        android:paddingBottom="20dp"/>
 
 </LinearLayout>

@@ -56,7 +56,7 @@ public class RateActivity extends AppCompatActivity implements RateAdapter.RateL
         }
 
         loadingHelper.showLoading("");
-        new RateController().getRates( new RateCallback() {
+        new RateController().getRatesAlways( new RateCallback() {
             @Override
             public void onSuccess(ArrayList<RateModel> rates) {
                 loadingHelper.dismissLoading();
@@ -92,8 +92,8 @@ public class RateActivity extends AppCompatActivity implements RateAdapter.RateL
         rate.setComment(commentText);
         rate.setCreatedAt(Calendar.getInstance().getTime());
         rate.setRate(Math.round(rateValue));
-        rate.setFromOwener(SharedData.owner);
-        rate.setToSupplier(SharedData.supplier);
+        rate.setFromOwener(SharedData.currentUser);
+        rate.setToSupplier(SharedData.stalkedUser);
         new RateController().save(rate, new RateCallback() {
             @Override
             public void onSuccess(ArrayList<RateModel> rates) {

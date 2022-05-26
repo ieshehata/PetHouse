@@ -2,11 +2,13 @@ package com.app.pethouse.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.pethouse.R;
 import com.app.pethouse.model.UserModel;
 import com.app.pethouse.utils.SharedData;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,6 +50,16 @@ public class SuppliersAdapter extends RecyclerView.Adapter<SuppliersAdapter.View
         holder.name.setText(mData.get(position).getName());
         holder.email.setText(mData.get(position).getEmail());
         holder.phone.setText(mData.get(position).getPhone());
+
+        if (!TextUtils.isEmpty(mData.get(position).getProfileImage())) {
+            holder.avatar.setVisibility(View.VISIBLE);
+            Picasso.get()
+                    .load(mData.get(position).getProfileImage())
+                    .into(holder.avatar);
+        } else {
+            holder.avatar.setVisibility(View.GONE);
+        }
+
         if(mData.get(position).getState() == 1) { //Active
             holder.blockButton.setVisibility(View.VISIBLE);
             holder.unblockButton.setVisibility(View.GONE);
@@ -91,24 +104,31 @@ public class SuppliersAdapter extends RecyclerView.Adapter<SuppliersAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         View view;
         LinearLayout actionButtons;
+        ImageView avatar;
         TextView name, email,  phone;
-        Button unblockButton, blockButton;
+        Button unblockButton, blockButton, chat;
         ImageButton delete;
         SupplierListener listener;
         ViewHolder(View itemView, SupplierListener listener) {
             super(itemView);
             view = itemView.findViewById(R.id.view);
             actionButtons = itemView.findViewById(R.id.action_buttons);
+            avatar = itemView.findViewById(R.id.avatar);
             name = itemView.findViewById(R.id.name);
             email = itemView.findViewById(R.id.email);
             phone = itemView.findViewById(R.id.phone);
             delete = itemView.findViewById(R.id.delete);
+            chat = itemView.findViewById(R.id.chat);
             unblockButton = itemView.findViewById(R.id.unblock);
             blockButton = itemView.findViewById(R.id.block);
             this.listener = listener;
 
             view.setOnClickListener(v -> {
                 listener.view(getAdapterPosition());
+            });
+
+            chat.setOnClickListener(v -> {
+                listener.chat(getAdapterPosition());
             });
 
             unblockButton.setOnClickListener(v -> {
@@ -126,5 +146,6 @@ public class SuppliersAdapter extends RecyclerView.Adapter<SuppliersAdapter.View
         void response(int position, boolean isBlocking);
         void view(int position);
         void deleteItem(int position);
+        void chat(int position);
     }
 }

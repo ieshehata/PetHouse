@@ -125,25 +125,25 @@ public class OwenerProfileFragment extends Fragment implements Validator.Validat
     @SuppressLint("DefaultLocale")
     private void setData() {
         register.setText("Update");
-        assert SharedData.owner != null;
-        owner = SharedData.owner;
-        name.setText(SharedData.owner.getName());
-        phone.setText(SharedData.owner.getPhone());
-        password.setText(SharedData.owner.getPass());
-        email.setText(SharedData.owner.getEmail());
-        petName.setText(SharedData.owner.getPetName());
-        petGander.setText(SharedData.owner.getPetGander());
-        petKind.setText(SharedData.owner.getPetKind());
+        assert SharedData.currentUser != null;
+        owner = SharedData.currentUser;
+        name.setText(SharedData.currentUser.getName());
+        phone.setText(SharedData.currentUser.getPhone());
+        password.setText(SharedData.currentUser.getPass());
+        email.setText(SharedData.currentUser.getEmail());
+        petName.setText(SharedData.currentUser.getPetName());
+        petGander.setText(SharedData.currentUser.getPetGander());
+        petKind.setText(SharedData.currentUser.getPetKind());
 
-        if (!TextUtils.isEmpty(SharedData.owner.getProfileImage())) {
+        if (!TextUtils.isEmpty(SharedData.currentUser.getProfileImage())) {
             Picasso.get()
-                    .load(SharedData.owner.getProfileImage())
+                    .load(SharedData.currentUser.getProfileImage())
                     .into(avatar);
         }
 
-        if (!TextUtils.isEmpty(SharedData.owner.getImagePet())) {
+        if (!TextUtils.isEmpty(SharedData.currentUser.getImagePet())) {
             Picasso.get()
-                    .load(SharedData.owner.getImagePet())
+                    .load(SharedData.currentUser.getImagePet())
                     .into(imagePet);
         }
 
@@ -201,20 +201,20 @@ public class OwenerProfileFragment extends Fragment implements Validator.Validat
         owner.setPetName(petName.getText().toString());
         owner.setPetGander(petGander.getText().toString());
         owner.setPetKind(petKind.getText().toString());
-        SharedData.owner = owner;
+        SharedData.currentUser = owner;
 
         if(imageUri != null) {
             loadingHelper.showLoading("");
             new UploadController().uploadImage(imageUri, new StringCallback() {
                 @Override
                 public void onSuccess(String text) {
-                    SharedData.owner.setProfileImage(text);
+                    SharedData.currentUser.setProfileImage(text);
                     if(petUri != null) {
                         new UploadController().uploadImage(petUri, new StringCallback() {
                             @Override
                             public void onSuccess(String text) {
-                                SharedData.owner.setImagePet(text);
-                                new UserController().save(SharedData.owner, new UserCallback() {
+                                SharedData.currentUser.setImagePet(text);
+                                new UserController().save(SharedData.currentUser, new UserCallback() {
                                     @Override
                                     public void onSuccess(ArrayList<UserModel> users) {
                                         loadingHelper.dismissLoading();
@@ -236,7 +236,7 @@ public class OwenerProfileFragment extends Fragment implements Validator.Validat
                             }
                         });
                     } else {
-                        new UserController().save(SharedData.owner, new UserCallback() {
+                        new UserController().save(SharedData.currentUser, new UserCallback() {
                             @Override
                             public void onSuccess(ArrayList<UserModel> users) {
                                 loadingHelper.dismissLoading();
@@ -264,8 +264,8 @@ public class OwenerProfileFragment extends Fragment implements Validator.Validat
                 new UploadController().uploadImage(petUri, new StringCallback() {
                     @Override
                     public void onSuccess(String text) {
-                        SharedData.owner.setImagePet(text);
-                        new UserController().save(SharedData.owner, new UserCallback() {
+                        SharedData.currentUser.setImagePet(text);
+                        new UserController().save(SharedData.currentUser, new UserCallback() {
                             @Override
                             public void onSuccess(ArrayList<UserModel> users) {
                                 loadingHelper.dismissLoading();
@@ -288,7 +288,7 @@ public class OwenerProfileFragment extends Fragment implements Validator.Validat
                 });
             } else {
                 loadingHelper.showLoading("");
-                new UserController().save(SharedData.owner, new UserCallback() {
+                new UserController().save(SharedData.currentUser, new UserCallback() {
                     @Override
                     public void onSuccess(ArrayList<UserModel> users) {
                         loadingHelper.dismissLoading();

@@ -232,25 +232,6 @@
 
                 </LinearLayout>
 
-                <!-- Nationality edit text -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/nationality_field"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/colorPrimaryVeryDark">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/nationality"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/nationality"
-                        android:inputType="text"
-                        android:textCursorDrawable="@color/black" />
-                </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/type_layout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
@@ -260,7 +241,8 @@
                     android:hint="Type"
                     app:endIconContentDescription="Type"
                     app:boxStrokeColor="@color/colorPrimaryVeryDark"
-                    app:hintTextColor="@color/colorPrimaryVeryDark">
+                    app:hintTextColor="@color/colorPrimaryVeryDark"
+                    android:visibility="gone">
 
                     <AutoCompleteTextView
                         android:id="@+id/type"
@@ -319,7 +301,7 @@
                     android:paddingEnd="20dp"
                     android:text="Place your location"
                     android:backgroundTint="@color/colorPrimaryMidDark"
-                    android:textColor="@color/colorPrimaryVeryDark"
+                    android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
 
                 <Button
@@ -330,7 +312,7 @@
                     android:layout_marginTop="20dp"
                     android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="@string/register"
-                    android:textColor="@color/colorPrimaryVeryDark"
+                    android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
 
             </LinearLayout>

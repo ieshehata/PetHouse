@@ -19,11 +19,12 @@ public class AdminMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_main);
         (findViewById(R.id.system_data)).setOnClickListener(v -> startActivity(new Intent(this, GovernoratesActivity.class)));
 
-        (findViewById(R.id.types_supplier)).setOnClickListener(v -> startActivity(new Intent(this, TypesActivity.class)));
-
         (findViewById(R.id.suppliers)).setOnClickListener(v -> startActivity(new Intent(this, SuppliersActivity.class)));
 
         (findViewById(R.id.owners)).setOnClickListener(v -> startActivity(new Intent(this, OwenersActivity.class)));
+
+        (findViewById(R.id.chat)).setOnClickListener(v -> startActivity(new Intent(this, AdminConversationsActivity.class)));
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

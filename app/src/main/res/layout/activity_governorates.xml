@@ -39,7 +39,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_add_24"
         android:tint="@color/white"
-        app:backgroundTint="@color/colorPrimaryMidDark"
+        app:backgroundTint="@color/colorPrimary"
         app:fabSize="auto"
         app:maxImageSize="36dp" />
 

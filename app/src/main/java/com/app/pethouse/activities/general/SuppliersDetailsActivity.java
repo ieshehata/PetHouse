@@ -14,8 +14,11 @@ import android.widget.Toast;
 
 import com.app.pethouse.R;
 import com.app.pethouse.activities.supplier.SupplierNavigationActivity;
+import com.app.pethouse.callback.ConversationCallback;
 import com.app.pethouse.callback.UserCallback;
+import com.app.pethouse.controller.ConversationController;
 import com.app.pethouse.controller.UserController;
+import com.app.pethouse.model.ConversationModel;
 import com.app.pethouse.model.UserModel;
 import com.app.pethouse.utils.LoadingHelper;
 import com.app.pethouse.utils.SharedData;
@@ -25,7 +28,7 @@ import java.util.ArrayList;
 
 public class SuppliersDetailsActivity extends AppCompatActivity {
     ViewPager viewPager;
-    TextView name, governorate, city, description, phone, email, price, nationality;
+    TextView name, governorate, city, description, phone, email, price;
     Button calender,location,rate,sendMsg;
     ImageView avatar;
     LoadingHelper loadingHelper;
@@ -42,7 +45,6 @@ public class SuppliersDetailsActivity extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         price = findViewById(R.id.price);
         email = findViewById(R.id.email);
-        nationality = findViewById(R.id.nationality);
         calender = findViewById(R.id.calender);
         rate=findViewById(R.id.rate);
         sendMsg =findViewById(R.id.chat);
@@ -61,8 +63,7 @@ public class SuppliersDetailsActivity extends AppCompatActivity {
         });
 
         sendMsg.setOnClickListener(v -> {
-            Intent intent = new Intent(SuppliersDetailsActivity.this, ChatActivity.class);
-            startActivity(intent);
+            chat(supplier);
         });
 
         location.setOnClickListener(v -> {
@@ -75,12 +76,12 @@ public class SuppliersDetailsActivity extends AppCompatActivity {
 
     private void getData() {
         loadingHelper.showLoading("");
-        new UserController().getUserByKey(SharedData.supplier.getKey(), new UserCallback() {
+        new UserController().getUserByKey(SharedData.stalkedUser.getKey(), new UserCallback() {
             @Override
             public void onSuccess(ArrayList<UserModel> suppliers) {
                 loadingHelper.dismissLoading();
                 if(suppliers.size() > 0) {
-                    SharedData.supplier = suppliers.get(0);
+                    SharedData.stalkedUser = suppliers.get(0);
                     supplier = suppliers.get(0);
                     setData();
                 }else {
@@ -102,16 +103,53 @@ public class SuppliersDetailsActivity extends AppCompatActivity {
         name.setText(supplier.getName());
         phone.setText(supplier.getPhone());
         email.setText(supplier.getEmail());
-        nationality.setText(supplier.getNationality());
         governorate.setText(supplier.getGovernorate().getName());
         city.setText(supplier.getCity().getName());
         description.setText(supplier.getDescription());
         price.setText(String.format("%.3f KWD", supplier.getPrice()));
 
-        if (!TextUtils.isEmpty(SharedData.supplier.getProfileImage())) {
+        if (!TextUtils.isEmpty(SharedData.stalkedUser.getProfileImage())) {
             Picasso.get()
-                    .load(SharedData.supplier.getProfileImage())
+                    .load(SharedData.stalkedUser.getProfileImage())
                     .into(avatar);
         }
+    }
+
+    public void chat(UserModel user) {
+        loadingHelper.showLoading("");
+        new ConversationController().getConversationsByTwoUsers(SharedData.currentUser.getKey(),
+                user.getKey(), new ConversationCallback() {
+                    @Override
+                    public void onSuccess(ArrayList<ConversationModel> conversations) {
+                        if (conversations.size() > 0) {
+                            loadingHelper.dismissLoading();
+                            SharedData.currentConversation = conversations.get(0);
+                            Intent intent = new Intent(SuppliersDetailsActivity.this, ChatActivity.class);
+                            startActivity(intent);
+                        } else {
+                            new ConversationController().newConversation(user, new ConversationCallback() {
+                                @Override
+                                public void onSuccess(ArrayList<ConversationModel> conversations) {
+                                    loadingHelper.dismissLoading();
+                                    SharedData.currentConversation = conversations.get(0);
+                                    Intent intent = new Intent(SuppliersDetailsActivity.this, ChatActivity.class);
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onFail(String error) {
+                                    loadingHelper.dismissLoading();
+                                    Toast.makeText(SuppliersDetailsActivity.this, error, Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onFail(String error) {
+                        loadingHelper.dismissLoading();
+                        Toast.makeText(SuppliersDetailsActivity.this, error, Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

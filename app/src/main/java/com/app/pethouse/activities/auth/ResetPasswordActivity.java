@@ -39,12 +39,12 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
                 if (validate()) {
                     if(SharedData.userType == 3) {
-                        SharedData.owner.setPass(pass.getText().toString());
-                        new UserController().save(SharedData.owner, new UserCallback() {
+                        SharedData.currentUser.setPass(pass.getText().toString());
+                        new UserController().save(SharedData.currentUser, new UserCallback() {
                             @Override
                             public void onSuccess(ArrayList<UserModel> suppliers) {
                                 loadingHelper.dismissLoading();
-                                SharedData.owner = suppliers.get(0);
+                                SharedData.currentUser = suppliers.get(0);
                                 Intent intent = new Intent(ResetPasswordActivity.this, LoginActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
@@ -57,12 +57,12 @@ public class ResetPasswordActivity extends AppCompatActivity {
                             }
                         });
                     }else if(SharedData.userType == 2) {
-                        SharedData.supplier.setPass(pass.getText().toString());
-                        new UserController().save(SharedData.supplier, new UserCallback() {
+                        SharedData.currentUser.setPass(pass.getText().toString());
+                        new UserController().save(SharedData.currentUser, new UserCallback() {
                             @Override
                             public void onSuccess(ArrayList<UserModel> oweners) {
                                 loadingHelper.dismissLoading();
-                                SharedData.owner = oweners.get(0);
+                                SharedData.currentUser = oweners.get(0);
                                 Intent intent = new Intent(ResetPasswordActivity.this, LoginActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);

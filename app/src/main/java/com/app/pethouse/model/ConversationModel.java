@@ -9,7 +9,7 @@ public class ConversationModel {
     private String lastMessage;
     private Date lastMessageDate;
     private int lastMessageState; // 0->delivered, 1->seen
-    private String lastMessageUserKey;
+    private String lastMessageUserKey = "";
     private String chatKey;
     private Date createdAt;
     private String blockedBy = "";

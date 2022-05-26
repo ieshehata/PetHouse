@@ -4,4 +4,11 @@
         <item>"Visa"</item>
         <item>"Master Card"</item>
     </array>
+
+    <array name="supplier_type">
+        <item>"Caregiver"</item>
+        <item>"Pet Doctor"</item>
+        <item>"Pet Club"</item>
+
+    </array>
 </resources>

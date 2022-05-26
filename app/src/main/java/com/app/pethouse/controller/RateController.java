@@ -36,7 +36,7 @@ public class RateController {
     }
 
     public void getRates(final RateCallback callback){
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 rates = new ArrayList<>();

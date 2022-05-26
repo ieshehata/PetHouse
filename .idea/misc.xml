@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/work/programes/mob/Android_Projects/PetHouse/app/src/main/res/layout/activity_about_us.xml" value="0.1" />
+        <entry key="..\:/work/programes/mob/Android_Projects/PetHouse/app/src/main/res/layout/activity_forget_password.xml" value="0.13229166666666667" />
+        <entry key="..\:/work/programes/mob/Android_Projects/PetHouse/app/src/main/res/layout/row_type.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

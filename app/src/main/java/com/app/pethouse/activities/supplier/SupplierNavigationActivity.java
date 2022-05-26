@@ -136,8 +136,8 @@ public class SupplierNavigationActivity extends AppCompatActivity implements OnM
     }
 
     private void setData(){
-        Point destinationPoint = Point.fromLngLat(SharedData.supplier.getLongitude(),
-                SharedData.supplier.getLatitude());
+        Point destinationPoint = Point.fromLngLat(SharedData.stalkedUser.getLongitude(),
+                SharedData.stalkedUser.getLatitude());
         Point originPoint = Point.fromLngLat(locationComponent.getLastKnownLocation().getLongitude(),
                 locationComponent.getLastKnownLocation().getLatitude());
 

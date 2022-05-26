@@ -104,28 +104,6 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nationality"
-                    android:textColor="@color/colorGray"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/nationality"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text=""
-                    android:textColor="@color/colorPrimaryVeryDark"
-                    android:textSize="14sp" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -186,7 +164,7 @@
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="Supplier Calender"
-                    android:textColor="@color/colorPrimaryVeryDark" />
+                    android:textColor="@color/colorAccent" />
 
                 <Button
                     android:id="@+id/location"
@@ -195,7 +173,7 @@
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="@string/show_on_map"
-                    android:textColor="@color/colorPrimaryVeryDark" />
+                    android:textColor="@color/colorAccent" />
 
                 <Button
                     android:id="@+id/rate"
@@ -204,7 +182,7 @@
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="rates"
-                    android:textColor="@color/colorPrimaryVeryDark" />
+                    android:textColor="@color/colorAccent" />
 
                 <Button
                     android:id="@+id/chat"
@@ -213,7 +191,7 @@
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="@color/colorPrimaryMidDark"
                     android:text="send msg"
-                    android:textColor="@color/colorPrimaryVeryDark" />
+                    android:textColor="@color/colorAccent" />
 
 
             </LinearLayout>
@@ -230,21 +208,21 @@
         android:paddingStart="8dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:background="@color/darkBlue"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price for a day:"
-            android:textColor="@color/colorLightGray"
+            android:text="Price:"
+            android:textColor="@color/colorGray"
             android:textSize="12sp"/>
         <TextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10 KWD"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimaryVeryDark"
             android:textSize="14sp"
             android:textStyle="bold"/>
     </LinearLayout>

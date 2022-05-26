@@ -21,6 +21,7 @@ public class SharedData {
     public static UserHeaderModel currentUserHeader;
     public static UserHeaderModel stalkedUserHeader;
     public static ConversationModel currentConversation;
+    public static int supplierType;
 
     public static String format = "EEE, d MMM yyyy hh:mm a";
     public static String formatTime = "hh:mm a";
@@ -32,9 +33,7 @@ public class SharedData {
     public static final String IS_USER_SAVED = "SAVED_USER";
     public static final String PHONE = "PHONE";
     public static final String PASS = "PASS";
-    public static UserModel supplier;
-    public static UserModel owner;
-    public static UserModel user;
+
     public static OrderCareModel currentOrder;
     public static LatLng currentLatLng;
     public static double longitude;
